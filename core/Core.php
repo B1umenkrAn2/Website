@@ -96,7 +96,73 @@ class core
 
     public function stripSlashesDeep($value)
     {
-        $value = is_array($value) ? array_map(array($this,'stripSlashesDeep'),$value):$this->stripSlashesDeep($value);
+        $value = is_array($value) ? array_map(array($this, 'stripSlashesDeep'), $value) : stripslashes($value);
         return $value;
+
+    }
+
+    public function removeMagicQuotes()
+    {
+        if (get_magic_quotes_gpc()) {
+            $_GET = isset($_GET) ? $this->stripSlashesDeep($_GET) : '';
+            $_POST = isset($_POST) ? $this->stripSlashesDeep($_POST) : '';
+
+            $_COOKIE = isset($_COOKIE) ? $this->stripSlashesDeep($_COOKIE) : '';
+            $_SESSION = isset($_SESSION) ? $this->stripSlashesDeep($_SESSION) : '';
+
+        }
+    }
+
+
+    public function unregisterGlobals()
+    {
+        $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
+        foreach ($array as $item) {
+            foreach ($GLOBALS[$item] as $key => $var) {
+                if ($var === $GLOBALS[$key]) {
+                    unset($GLOBALS[$key]);
+                }
+            }
+
+        }
+    }
+
+    public function setDbConfig()
+    {
+        if ($this->config['db']) {
+            define('DB_HOST', $this->config['db']['host']);
+            define('DB_NAME', $this->config['db']['dbname']);
+            define('DB_USER', $this->config['db']['username']);
+            define('DB_PASS', $this->config['db']['password']);
+        }
+    }
+
+    public function loadClass($className)
+    {
+        $classMap = $this->classMap();
+        if (isset($classMap[$className])) {
+            $file = $classMap[$className];
+        } elseif (strpos($className, '\\') !== false) {
+
+            $file = APP_PATH . str_replace('\\', '/', $className) . 'php';
+
+            if (!is_file($file)) {
+                return;
+            }
+        } else {
+            return;
+        }
+        include $file;
+    }
+
+    protected function classMap()
+    {
+        return [
+            'core\base\Controller' => CORE_PATH . '/base/Controller.php',
+            'core\base\Model' => CORE_PATH . '/base/Model.php',
+            'core\base\view' => CORE_PATH . '/base/View',
+            'core\db\Db' => CORE_PATH . '/db/Db.php',
+            'core\db\Sql' => CORE_PATH . '/db/Sql.php',
+        ];
     }
 }

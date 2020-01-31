@@ -1,0 +1,1 @@
+<a class="big" href="/item/index">add success<?php echo $count ?>records，click to return</a>

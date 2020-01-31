@@ -1,0 +1,1 @@
+<a href="/item/index">delete success<?php echo $count ?>record，return</a>

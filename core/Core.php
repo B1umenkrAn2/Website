@@ -66,7 +66,7 @@ class Core
         }
 
         // judging the controller and action are exist or not
-        $controller = 'app\\controllers\\' . $controllerName . 'Controller';
+        $controller = 'app/controllers/' . $controllerName . 'Controller';
         if (!class_exists($controller)) {
             exit($controller . 'controller not exist');
         }

@@ -1,13 +1,13 @@
 <?php
 
-namespace core;
+namespace cocore;
 
 // root dir
-define('CORE_PATH') or define('CORE_PATH', __DIR__);
+defined('CORE_PATH') or define('CORE_PATH', __DIR__);
 
 // core
 
-class core
+class Core
 {
     //config
     protected $config = [];
@@ -23,8 +23,8 @@ class core
     {
         spl_autoload_register(array($this, 'loadClass'));
         $this->setReporting();
-        $this->removeMageicQuotes();
-        $this->unregeisterGlobals();
+        $this->removeMagicQuotes();
+        $this->unregisterGlobals();
         $this->setDbConfig();
         $this->route();
     }
@@ -40,7 +40,7 @@ class core
         $url = $_SERVER['REQUEST_URI'];
         // clean content before ?
         $position = strpos($url, '?');
-        $url = $position === faalse ? $url : substr($url, 0, $position);
+        $url = $position === false ? $url : substr($url, 0, $position);
         // delete "/"
 
         $url = trim($url, '/');
@@ -54,7 +54,7 @@ class core
             $urlArray = array_filter($urlArray);
 
             // get controller name
-            $controllerName = ucfirst($urlArray);
+            $controllerName = ucfirst($urlArray[0]);
 
             //get action name
             array_shift($urlArray);
@@ -86,7 +86,7 @@ class core
     {
         if (App_DEBUG === true) {
             error_reporting(E_ALL);
-            ini_set('display_errors', on);
+            ini_set('display_errors', 'on');
         } else {
             error_reporting(E_ALL);
             ini_set('display_errors', 'off');
@@ -116,14 +116,15 @@ class core
 
     public function unregisterGlobals()
     {
-        $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
-        foreach ($array as $item) {
-            foreach ($GLOBALS[$item] as $key => $var) {
-                if ($var === $GLOBALS[$key]) {
-                    unset($GLOBALS[$key]);
+        if (ini_get('register_globals')) {
+            $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
+            foreach ($array as $value) {
+                foreach ($GLOBALS[$value] as $key => $var) {
+                    if ($var === $GLOBALS[$key]) {
+                        unset($GLOBALS[$key]);
+                    }
                 }
             }
-
         }
     }
 
@@ -157,12 +158,14 @@ class core
 
     protected function classMap()
     {
+
         return [
             'core\base\Controller' => CORE_PATH . '/base/Controller.php',
             'core\base\Model' => CORE_PATH . '/base/Model.php',
-            'core\base\view' => CORE_PATH . '/base/View',
+            'core\base\View' => CORE_PATH . '/base/View.php',
             'core\db\Db' => CORE_PATH . '/db/Db.php',
             'core\db\Sql' => CORE_PATH . '/db/Sql.php',
         ];
+
     }
 }

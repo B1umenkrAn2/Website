@@ -12,4 +12,4 @@ require (APP_PATH.'core/Core.php');
 $config = require (APP_PATH.'config/config.php');
 
 //instance framework
-(new code\Code($config))->run();
+(new core\Core($config))->run();

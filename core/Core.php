@@ -43,6 +43,13 @@ class Core
         $url = $position === false ? $url : substr($url, 0, $position);
         // delete "/"
 
+        // 使得可以这样访问 index.php/{controller}/{action}
+        $position = strpos($url, 'index.php');
+        if ($position !== false) {
+            $url = substr($url, $position + strlen('index.php'));
+        }
+
+        // 删除前后的“/”
         $url = trim($url, '/');
         if ($url) {
             // using '/' substr url then save to array
@@ -62,11 +69,11 @@ class Core
 
             // get ulr param
             array_shift($urlArray);
-            $param = $urlArray ? $urlArray[0] : $actionName;
+            $param = $urlArray ? $urlArray : array();
         }
 
-        // judging the controller and action are exist or not
-        $controller = 'app/controllers/' . $controllerName . 'Controller';
+        // 判断控制器和操作是否存在
+        $controller = 'app\\controllers\\'. $controllerName . 'Controller';
         if (!class_exists($controller)) {
             exit($controller . 'controller not exist');
         }
@@ -84,13 +91,13 @@ class Core
 
     public function setReporting()
     {
-        if (App_DEBUG === true) {
+        if (APP_DEBUG === true) {
             error_reporting(E_ALL);
-            ini_set('display_errors', 'on');
+            ini_set('display_errors','On');
         } else {
             error_reporting(E_ALL);
-            ini_set('display_errors', 'off');
-            ini_set('log_errors', 'on');
+            ini_set('display_errors','Off');
+            ini_set('log_errors', 'On');
         }
     }
 
@@ -104,12 +111,10 @@ class Core
     public function removeMagicQuotes()
     {
         if (get_magic_quotes_gpc()) {
-            $_GET = isset($_GET) ? $this->stripSlashesDeep($_GET) : '';
-            $_POST = isset($_POST) ? $this->stripSlashesDeep($_POST) : '';
-
+            $_GET = isset($_GET) ? $this->stripSlashesDeep($_GET ) : '';
+            $_POST = isset($_POST) ? $this->stripSlashesDeep($_POST ) : '';
             $_COOKIE = isset($_COOKIE) ? $this->stripSlashesDeep($_COOKIE) : '';
             $_SESSION = isset($_SESSION) ? $this->stripSlashesDeep($_SESSION) : '';
-
         }
     }
 
@@ -144,9 +149,8 @@ class Core
         if (isset($classMap[$className])) {
             $file = $classMap[$className];
         } elseif (strpos($className, '\\') !== false) {
-
-            $file = APP_PATH . str_replace('\\', '/', $className) . 'php';
-
+            // 包含应用（application目录）文件
+            $file = APP_PATH . str_replace('\\', '/', $className) . '.php';
             if (!is_file($file)) {
                 return;
             }

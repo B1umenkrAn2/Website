@@ -39,7 +39,7 @@ class View
         if (is_file($controllerLayout)) {
             include($controllerLayout);
         } else {
-            echo "cant find the view";
+            echo "<h1>cant find the view<h1>";
         }
 
         if (is_file($controllerFooter)) {

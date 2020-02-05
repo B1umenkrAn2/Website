@@ -7,8 +7,7 @@ $config['db']['username']='admin';
 $config['db']['password']='123456';
 $config['db']['dbname']='project';
 
-//defaultController
-
+//default controller and default action
 $config['defaultController']='Item';
 $config['defaultAction']='index';
 

@@ -14,6 +14,8 @@ class ItemController extends Controller
         if ($keyword) {
             $items = (new Item())->search($keyword);
         } else {
+            // 查询所有内容，并按倒序排列输出
+            // where()方法可不传入参数，或者省略
             $items = (new Item)->where()->order(['id DESC'])->fetchAll();
         }
 

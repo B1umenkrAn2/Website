@@ -43,13 +43,13 @@ class Core
         $url = $position === false ? $url : substr($url, 0, $position);
         // delete "/"
 
-        // 使得可以这样访问 index.php/{controller}/{action}
+        // can be access url like index.php/{controller}/{action}
         $position = strpos($url, 'index.php');
         if ($position !== false) {
             $url = substr($url, $position + strlen('index.php'));
         }
 
-        // 删除前后的“/”
+        // delete content before “/”
         $url = trim($url, '/');
         if ($url) {
             // using '/' substr url then save to array
@@ -72,12 +72,12 @@ class Core
             $param = $urlArray ? $urlArray : array();
         }
 
-        // 判断控制器和操作是否存在
+        // check the controller exist or not
         $controller = 'app\\controllers\\'. $controllerName . 'Controller';
         if (!class_exists($controller)) {
             exit($controller . 'controller not exist');
         }
-
+        // check the action exist or not
         if (!method_exists($controller, $actionName)) {
             exit($actionName . 'method not exist');
         }
@@ -149,7 +149,6 @@ class Core
         if (isset($classMap[$className])) {
             $file = $classMap[$className];
         } elseif (strpos($className, '\\') !== false) {
-            // 包含应用（application目录）文件
             $file = APP_PATH . str_replace('\\', '/', $className) . '.php';
             if (!is_file($file)) {
                 return;

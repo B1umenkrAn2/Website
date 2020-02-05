@@ -22,7 +22,7 @@ class View
     public function render()
     {
         extract($this->variables);
-        $defaultHeader = APP_PATH . 'app/views/heard.php';
+        $defaultHeader = APP_PATH . 'app/views/header.php';
         $defaultFooter = APP_PATH . 'app/views/footer.php';
 
         $controllerHeader = APP_PATH . 'app/views/' . $this->_controller . '/header.php';

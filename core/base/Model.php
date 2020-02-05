@@ -1,5 +1,5 @@
 <?php
-namespace \core\base;
+namespace core\base;
 
 use core\db\Sql;
 
@@ -9,8 +9,10 @@ class Model extends Sql
 
     public function __construct()
     {
-        if ($this->table) {
-            $this->model = get_calss($this);
+        if (!$this->table) {
+
+
+            $this->model = get_class($this);
 
             $this->model = substr($this->model, 0, -5);
 

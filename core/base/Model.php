@@ -10,7 +10,7 @@ class Model extends Sql
     public function __construct()
     {
         if ($this->table) {
-            $this->model = get_calss($this);
+            $this->model = get_class($this);
 
             $this->model = substr($this->model, 0, -5);
 

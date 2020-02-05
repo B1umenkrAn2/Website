@@ -30,8 +30,9 @@ class Sql
     public function where($where = array(), $param = array())
     {
         if ($where) {
-            $this->filter .= 'WHERE';
+            $this->filter .= ' WHERE ';
             $this->filter .= implode(' ', $where);
+
             $this->param = $param;
         }
 
@@ -48,8 +49,8 @@ class Sql
      */
     public function order($order = array())
     {
-        if ($order) {
-            $this->filter .= 'ORDER BY';
+        if($order) {
+            $this->filter .= ' ORDER BY ';
             $this->filter .= implode(',', $order);
         }
 

@@ -158,8 +158,11 @@ class core
             return;
         }
         include $file;
+
+
     }
 
+    // namespace mapping
     protected function classMap()
     {
 

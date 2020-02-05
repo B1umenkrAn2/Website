@@ -9,11 +9,16 @@ class Model extends Sql
 
     public function __construct()
     {
-        if ($this->table) {
+        // get database table name
+        if (!$this->table) {
+
+            //  get model  Class name
             $this->model = get_class($this);
 
+            //  substr class name to model
             $this->model = substr($this->model, 0, -5);
 
+            // check the table name and class name
             $this->table = strtolower($this->model);
         }
 

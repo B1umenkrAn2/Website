@@ -25,7 +25,7 @@ class ItemController extends Controller
 
     public function detail($id)
     {
-        // 通过?占位符传入$id参数
+        //  using ? for replace param
         $item = (new Item())->where(["id = ?"], [$id])->fetch();
 
         $this->assign('title', 'details');
@@ -47,7 +47,6 @@ class ItemController extends Controller
     {
         $item = array();
         if ($id) {
-            // 通过名称占位符传入参数
             $item = (new Item())->where(["id = :id"], [':id' => $id])->fetch();
         }
 

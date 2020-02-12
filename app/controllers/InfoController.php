@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\models\Info;
 use app\models\Item;
 use core\base\Controller;
 
@@ -22,10 +23,10 @@ class InfoController extends Controller
         $this->render();
     }
 
-    public function all(){
+    public function infoAll(){
 
-        $items = (new Item)->where()->order(['id DESC'])->fetchAll();
-        $this->assign('title', 'info-all');
+        $items = (new Info)->fetchAll();
+        $this->assign('title', 'infoAll');
         $this->assign('entities',$items);
         $this->render();
     }

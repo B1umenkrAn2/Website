@@ -4,7 +4,8 @@
 </form>
 
 <p><a href="/item/manage">new</a></p>
-
+<p><a href="info/index">info index</a></p>
+<p><a href="info/infoAll">info all</a></p>
 <table>
     <tr>
         <th>ID</th>
@@ -19,10 +20,13 @@
                     <?php echo $item['item_name'] ?>
                 </a>
             </td>
+            
             <td>
                 <a href="/item/manage/<?php echo $item['id'] ?>">edit</a>
                 <a href="/item/delete/<?php echo $item['id'] ?>">delete</a>
             </td>
+
+
         </tr>
     <?php endforeach ?>
 </table>

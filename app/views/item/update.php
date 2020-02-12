@@ -1,1 +1,1 @@
-<a class="big" href="/item/index">update success<?php echo $count ?>record，click to return</a>
+<a class="big" href="/item/index">update success <?php echo $count ?> items，return</a>

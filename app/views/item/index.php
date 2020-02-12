@@ -21,7 +21,7 @@
             </td>
             <td>
                 <a href="/item/manage/<?php echo $item['id'] ?>">edit</a>
-                <a href="/item/delete/<?php echo $item['id'] ?>">detail</a>
+                <a href="/item/delete/<?php echo $item['id'] ?>">delete</a>
             </td>
         </tr>
     <?php endforeach ?>

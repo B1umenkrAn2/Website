@@ -138,9 +138,9 @@ class core
     {
         if ($this->config['db']) {
             define('DB_HOST', $this->config['db']['host']);
-            define('DB_NAME', $this->config['db']['dbname']);
-            define('DB_USER', $this->config['db']['username']);
-            define('DB_PASS', $this->config['db']['password']);
+//            define('DB_NAME', $this->config['db']['dbname']);
+//            define('DB_USER', $this->config['db']['username']);
+//            define('DB_PASS', $this->config['db']['password']);
         }
     }
 

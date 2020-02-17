@@ -6,17 +6,25 @@ This is a open source data demonstration website. this website use MVC structure
 ## 1 Preparation
 #### 1.1 Environmental preparation
 Here we need the most basic PHP environment:
-        
+
+```        
         Linux
         Apache
         Sqlite3
         PHP 5.4+
-Due to this website using Sqlite, we should install php-sqlite component
         
-        sudo apt-get install php-sqlite        
+```       
+
+Due to this website using Sqlite, we should install php-sqlite component
+
+```        
+        sudo apt-get install php-sqlite 
+```
+       
 #### 1.2 Directory Preparation
 the directory structure is like this:
-        
+
+```        
         Website                WEB deployment root directory
         ├─ app                 catalog
         ├─│ the Controllers    Controller Directories
@@ -29,6 +37,7 @@ the directory structure is like this:
         │ ├─ core.php          kernel file  
         ├─ static              static file directory
         ├─ index.php           entry file
+```
 
 put this website folder in to Apache default folder which is /var/wwww 
 
@@ -36,13 +45,16 @@ put this website folder in to Apache default folder which is /var/wwww
 
 **Important :**
    To using this function, first is config apache server. the default configuration of apache does not open rewrite function.
-    
+
+```    
     sudo a2enmod rewrite
 
+```
 The purpose of the redirect is twofold: to set the root directory to project where it is, 
 and to send all requests to the index.php file.
 If it is an Apache server , create a new .htaccess  file in the project directory with the content:
-        
+
+```        
         <IfModule mod_rewrite.c> 
             # Turn on the Rerite function 
             RewriteEngine  On
@@ -54,6 +66,8 @@ If it is an Apache server , create a new .htaccess  file in the project director
             # If the accessed file or directory does not really exist, distribute the request to index.php 
             RewriteRule . Index.php
          </ IfModule>
+```
+         
 **The main reasons for this are: **
 
 (1) Static files can be accessed directly.
@@ -74,9 +88,11 @@ When create the DB file in somewhere, have to use the following code to change t
     
 **important :**  
 **write a data to a file, the folder which file stored need execution permission.**
-   
+
+```   
     chmod 755 *dbfilename* 
     chmod 777 *dbfilefolder* 
+```
  
 #### 1.5 End of deployment server 
 

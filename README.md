@@ -92,4 +92,4 @@ When create the DB file in somewhere, have to use the following code to change t
  
 #### 1.5 End of deployment server 
 
-For now, Everything should set down. test all the function access http://localhost/ 
+Now everything should be configured. Test all feature by access http://localhost/

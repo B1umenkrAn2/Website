@@ -12,15 +12,11 @@ Here we need the most basic PHP environment:
         Apache
         Sqlite3
         PHP 5.4+
-        
 ```       
-
 Due to this website using Sqlite, we should install php-sqlite component
-
 ```        
         sudo apt-get install php-sqlite 
-```
-       
+```  
 #### 1.2 Directory Preparation
 the directory structure is like this:
 

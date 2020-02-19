@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\models\Item;
 use core\base\Controller;
 
 class InfoController extends Controller
@@ -18,6 +19,14 @@ class InfoController extends Controller
         $this->assign('title', 'Home');
 //        $this->assign('keyword', $keyword);
 //        $this->assign('items', $items);
+        $this->render();
+    }
+
+    public function all(){
+
+        $items = (new Item)->where()->order(['id DESC'])->fetchAll();
+        $this->assign('title', 'info-all');
+        $this->assign('entities',$items);
         $this->render();
     }
 }

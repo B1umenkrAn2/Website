@@ -1,5 +1,5 @@
 # AAFC open source website
-This is a open source data demonstration website. this website use MVC structure and it write with PHP.
+This is a open source data demonstration website. this website use MVC structure and write with PHP.
 
  
 
@@ -48,7 +48,7 @@ put this website folder in to Apache default folder which is /var/wwww
 ```
 The purpose of the redirect is twofold: to set the root directory to project where it is, 
 and to send all requests to the index.php file.
-If it is an Apache server , create a new .htaccess  file in the project directory with the content:
+For Apache server , create a new .htaccess  file in the project directory with the content:
 
 ```        
         <IfModule mod_rewrite.c> 

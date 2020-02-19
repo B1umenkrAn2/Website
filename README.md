@@ -1,5 +1,5 @@
 # AAFC open source website
-This is a open source data demonstration website. this website use MVC structure and it write with PHP.
+This is a open source data demonstration website. this website use MVC structure and write with PHP.
 
  
 

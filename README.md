@@ -48,7 +48,7 @@ put this website folder in to Apache default folder which is /var/wwww
 ```
 The purpose of the redirect is twofold: to set the root directory to project where it is, 
 and to send all requests to the index.php file.
-If it is an Apache server , create a new .htaccess  file in the project directory with the content:
+For Apache server , create a new .htaccess  file in the project directory with the content:
 
 ```        
         <IfModule mod_rewrite.c> 

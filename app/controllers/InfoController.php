@@ -23,10 +23,10 @@ class InfoController extends Controller
         $this->render();
     }
 
-    public function infoAll(){
+    public function All(){
 
         $items = (new Info)->fetchAll();
-        $this->assign('title', 'infoAll');
+        $this->assign('title', 'infAll');
         $this->assign('entities',$items);
         $this->render();
     }

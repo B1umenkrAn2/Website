@@ -3,7 +3,7 @@ namespace app\controllers;
 
 use core\base\Controller;
 
-class IndexController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {

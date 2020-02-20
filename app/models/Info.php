@@ -33,9 +33,14 @@ class Info extends Model
 
     public function getColumnName($ColumnName){
 
-        $sql = "select distinct".$ColumnName.'from'.$this->table;
+        $sql = "select distinct ".$ColumnName.' from '.$this->table;
+ /*       echo "-----------------";
+        echo $sql;
+        echo "-------------";*/
         $sth = Db::pdo()->prepare($sql);
         $sth->execute();
+
+        return $sth->fetchAll();
     }
 }
 

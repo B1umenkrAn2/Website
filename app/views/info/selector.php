@@ -6,7 +6,7 @@
                 <!-- select -->
                 <div class="form-group">
                     <label>Select Year</label>
-                    <select class="form-control">
+                    <select class="form-control" name="year">
                         <?php
                         foreach ($year as $info) {
                             foreach ($info as $data) {
@@ -20,8 +20,8 @@
             <div class="col-sm-6">
                 <!-- select -->
                 <div class="form-group">
-                    <label>Select PROVINCE</label>
-                    <select class="form-control">
+                    <label>Select province</label>
+                    <select class="form-control" name="province">
                        <?php
                         foreach ($province as $info) {
                             foreach ($info as $data) {

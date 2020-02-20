@@ -2,7 +2,7 @@
 <!--<head>-->
 <!--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>-->
 <!--    <title>--><?php //echo $title ?><!--</title>-->
-<!--    Latest compiled and minified CSS -->-->
+<!--    Latest compiled and minified CSS -->
 <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
 <!---->
 <!--    jQuery library -->

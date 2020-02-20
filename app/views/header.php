@@ -89,7 +89,7 @@
             top: 0
         }</style>
 </head>
-<body class="sidebar-mini layout-fixed sidebar-collapse" style="height: auto;">
+<body class="layout-fixed sidebar-collapse" style="height: auto;">
 
 <!-- start of wrapper -->
 

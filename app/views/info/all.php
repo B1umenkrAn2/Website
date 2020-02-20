@@ -86,10 +86,12 @@
 <!--                                    <td>X</td>-->
 <!--                                </tr>-->
                                 <?php
-                                foreach ($entities as $data){
+                                foreach ($entities as $info){
 
                                     echo "<tr>";
+                                    foreach ($info as $data ){
                                     echo "<td>".$data."</td>";
+                                    }
                                     echo "</tr>";
                                 }
 

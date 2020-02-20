@@ -90,7 +90,7 @@
 
                                     echo "<tr>";
                                     foreach ($info as $data ){
-                                    echo "<td>".$data."</td>";
+                                    echo "<td style='text-align: center'>".$data."</td>";
                                     }
                                     echo "</tr>";
                                 }

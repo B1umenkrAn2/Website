@@ -89,5 +89,8 @@
             top: 0
         }</style>
 </head>
-<body>
-<h1 style="text-align: center"><?php echo $title ?></h1>
+<body class="sidebar-mini layout-fixed sidebar-collapse" style="height: auto;">
+
+<!-- start of wrapper -->
+
+ <div class="wrapper">

@@ -8,7 +8,7 @@ $config['db']['host']=APP_PATH.'static/npdb.sqlite';
 //$config['db']['dbname']='project';
 
 //default controller and default action
-$config['defaultController']='Item';
+$config['defaultController']='Index';
 $config['defaultAction']='index';
 
 return $config;

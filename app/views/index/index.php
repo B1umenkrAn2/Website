@@ -1,3 +1,7 @@
+<!-- start of wrapper -->
+<div class="wrapper">
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -92,3 +96,5 @@
         </div>
         <!-- end of Main content -->
 </div>
+
+    <!-- wrapper end at footer file-->

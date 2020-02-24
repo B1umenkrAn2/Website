@@ -92,5 +92,4 @@
 <body class="layout-fixed sidebar-collapse" style="height: auto;">
 
 <!-- start of wrapper -->
-
  <div class="wrapper">

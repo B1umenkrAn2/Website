@@ -1,47 +1,145 @@
-<table>
-<!--    <tr>-->
-<!--        <th>1</th>-->
-<!--        <th>2</th>-->
-<!--        <th>3</th>-->
-<!--        <th>4</th>-->
-<!--        <th>5</th>-->
-<!--        <th>6</th>-->
-<!--        <th>7</th>-->
-<!--        <th>8</th>-->
-<!--        <th>9</th>-->
-<!--        <th>10</th>-->
-<!--        <th>11</th>-->
-<!--        <th>12</th>-->
-<!--        <th>13</th>-->
-<!--        <th>14</th>-->
-<!--        <th>15</th>-->
-<!--        <th>16</th>-->
-<!--        <th>17</th>-->
-<!--        <th>18</th>-->
-<!--        <th>19</th>-->
-<!--        <th>20</th>-->
-<!--        <th>21</th>-->
-<!--        <th>22</th>-->
-<!--        <th>23</th>-->
-<!--        <th>24</th>-->
-<!--        <th>25</th>-->
-<!--        <th>26</th>-->
-<!---->
-<!---->
-<!--    </tr>-->
-<!--    --><?php //var_dump($entities); ?>
-
-    <?php foreach ($entities as $item): ?>
-        <tr>
-            <td><?php echo $item['INFO_ID'] ?></td>
-            <td>
-                <?php echo $item['PEDON_ID'] ?>
-
-<!--            </td>-->
+<!--<table>-->
+<!--    --><?php //foreach ($entities as $item): ?>
+<!--        <tr>-->
+<!--            <td>--><?php //echo $item['INFO_ID'] ?><!--</td>-->
 <!--            <td>-->
-<!--                <p> --><?php //echo $item['EXTENT'] ?><!--</p>-->
-<!--                <p> --><?php //echo $item['N_SITES'] ?><!--</p>-->
-<!--            </td>-->
-<!--        </tr>-->
-    <?php endforeach ?>
-</table>
+<!--                --><?php //echo $item['PEDON_ID'] ?>
+<!--                -->
+<!--    --><?php //endforeach ?>
+<!--</table>-->
+
+<!-- start of wrapper -->
+<div class="wrapper">
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Info table</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="index/index">Home</a></li>
+                            <li class="breadcrumb-item active">InfoTable</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">DataTable with default features</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Info_ID</th>
+                                    <th>PEDON_ID</th>
+                                    <th>CAL_YEAR</th>
+                                    <th>PROVINCE</th>
+                                    <th>LOCALITY</th>
+                                    <th>DD_LAT</th>
+                                    <th>DD_LONG</th>
+                                    <th>CONF_METRS</th>
+                                    <th>ELEVATION</th>
+                                    <th>EXTENT</th>
+                                    <th>PURPOSE</th>
+                                    <th>CSSC_ORDER</th>
+                                    <th>CSSC_GTGRP</th>
+                                    <th>CSSC_SBGRP</th>
+                                    <th>CSSC_NAME</th>
+                                    <th>CSSC_CODE</th>
+                                    <th>TX_FIT</th>
+                                    <th>TX_FACTOR1</th>
+                                    <th>TX_FACTOR2</th>
+                                    <th>LANDUSE</th>
+                                    <th>REPORT_ID</th>
+                                    <th>PED_NOTES</th>
+                                    <th>N_SITES</th>
+                                    <th>N_PROFILES</th>
+                                    <th>N_CHEMICAL</th>
+                                    <th>N_MORPH</th>
+                                    <th>N_HORIZONS</th>
+                                    <th>N_PHYSICAL</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+<!--                                <tr>-->
+<!--                                    <td>Trident</td>-->
+<!--                                    <td>Internet-->
+<!--                                        Explorer 4.0-->
+<!--                                    </td>-->
+<!--                                    <td>Win 95+</td>-->
+<!--                                    <td> 4</td>-->
+<!--                                    <td>X</td>-->
+<!--                                </tr>-->
+                                <?php
+                                foreach ($entities as $data){
+
+                                    echo "<tr>";
+                                    echo "<td>".$data."</td>";
+                                    echo "</tr>";
+                                }
+
+                                ?>
+
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Info_ID</th>
+                                    <th>PEDON_ID</th>
+                                    <th>CAL_YEAR</th>
+                                    <th>PROVINCE</th>
+                                    <th>LOCALITY</th>
+                                    <th>DD_LAT</th>
+                                    <th>DD_LONG</th>
+                                    <th>CONF_METRS</th>
+                                    <th>ELEVATION</th>
+                                    <th>EXTENT</th>
+                                    <th>PURPOSE</th>
+                                    <th>CSSC_ORDER</th>
+                                    <th>CSSC_GTGRP</th>
+                                    <th>CSSC_SBGRP</th>
+                                    <th>CSSC_NAME</th>
+                                    <th>CSSC_CODE</th>
+                                    <th>TX_FIT</th>
+                                    <th>TX_FACTOR1</th>
+                                    <th>TX_FACTOR2</th>
+                                    <th>LANDUSE</th>
+                                    <th>REPORT_ID</th>
+                                    <th>PED_NOTES</th>
+                                    <th>N_SITES</th>
+                                    <th>N_PROFILES</th>
+                                    <th>N_CHEMICAL</th>
+                                    <th>N_MORPH</th>
+                                    <th>N_HORIZONS</th>
+                                    <th>N_PHYSICAL</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- wrapper end at footer file-->

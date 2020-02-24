@@ -15,4 +15,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1><?php echo $title ?></h1>
+<h1 style="text-align: center"><?php echo $title ?></h1>

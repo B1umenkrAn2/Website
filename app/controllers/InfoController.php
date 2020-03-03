@@ -24,9 +24,9 @@ class InfoController extends Controller
     }
 
     public function All(){
-        $where =array('CAL_YEAR = :CAL_YEAR','PROVINCE= :PROVINCE');
-        $param=array('year'=> $_POST['year'],'province'=>$_POST['province']);
-        $items = (new Info)->where(['CAL_YEAR = :CAL_YEAR'], [':CAL_YEAR' => $data['year'])->fetchAll();
+        $where =array('CAL_YEAR = :CAL_YEAR',' and PROVINCE= :PROVINCE');
+        $param=array(':CAL_YEAR'=> $_POST['year'],':PROVINCE'=>$_POST['province']);
+        $items = (new Info)->where($where, $param)->fetchAll();
         $this->assign('title', 'infAll');
         $this->assign('entities',$items);
         $this->render();

@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="info/selector" method="post">
+    <form action="all" method="post">
         <div class="row">
 
             <div class="col-sm-6">
@@ -10,7 +10,7 @@
                         <?php
                         foreach ($year as $info) {
                             foreach ($info as $data) {
-                                echo "<option>" . $data . "</option>";
+                                echo "<option value='$data'>" . $data . "</option>";
                             }
                         }
                         ?>
@@ -25,7 +25,7 @@
                        <?php
                         foreach ($province as $info) {
                             foreach ($info as $data) {
-                                echo "<option>" . $data . "</option>";
+                                echo "<option value='$data'>" . $data . "</option>";
                             }
                         }
                         ?>

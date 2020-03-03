@@ -122,7 +122,7 @@ class Sql
      *    [$a, $b, $c]
      * 2）using :
      *    ['a' => $a, 'b' => $b, 'c' => $c]
-     *    或者
+     *
      *    [':a' => $a, ':b' => $b, ':c' => $c]
      *
      * @return PDOStatement

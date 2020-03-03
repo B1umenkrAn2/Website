@@ -30,5 +30,12 @@ class Info extends Model
 
         return $sth->fetchAll();
     }
+
+    public function getColumnName($ColumnName){
+
+        $sql = "select distinct".$ColumnName.'from'.$this->table;
+        $sth = Db::pdo()->prepare($sql);
+        $sth->execute();
+    }
 }
 

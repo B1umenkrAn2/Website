@@ -30,4 +30,15 @@ class InfoController extends Controller
         $this->assign('entities',$items);
         $this->render();
     }
+
+    public function selector(){
+
+        $year = (new Info)->getColumnName($_POST['select1']);
+        $province = (new Info)->getColumnName($_POST['select2']);
+        $this->assign('title', 'selector');
+        $this->assign('year',$year);
+        $this->assign('year',$province);
+        $this->render();
+
+    }
 }

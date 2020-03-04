@@ -15,7 +15,7 @@
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="Home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Home</li>
                     </ol>
                 </div>
@@ -43,7 +43,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="info/All" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="info/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

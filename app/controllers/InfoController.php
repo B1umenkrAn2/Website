@@ -1,49 +1,52 @@
 <?php
+
 namespace app\controllers;
 
 use app\models\Info;
-use app\models\Item;
 use core\base\Controller;
 
 class InfoController extends Controller
 {
-    public function index()
+
+    /*
+     * get entire info table data
+     */
+    public function All()
     {
-//        $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-//
-//        if ($keyword) {
-//            $items = (new Item())->search($keyword);
-//        } else {
-//            $items = (new Item)->where()->order(['id DESC'])->fetchAll();
-//        }
-
-        $this->assign('title', 'Home');
-//        $this->assign('keyword', $keyword);
-//        $this->assign('items', $items);
+        $items = (new Info)->fetchAll();
+        $this->assign('title', 'info');
+        $this->assign('entities', $items);
         $this->render();
     }
 
-    public function All(){
-        $where =array('CAL_YEAR = :CAL_YEAR',' and PROVINCE= :PROVINCE');
-        $param=array(':CAL_YEAR'=> $_POST['year'],':PROVINCE'=>$_POST['province']);
+    /*
+     * get selector require from db and than pass to view
+     */
+    public function selectBaseOnYearLocation()
+    {
+        $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
+        $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
         $items = (new Info)->where($where, $param)->fetchAll();
-        $this->assign('title', 'infAll');
-        $this->assign('entities',$items);
+        $this->assign('title', 'year&location');
+        $this->assign('entities', $items);
         $this->render();
     }
 
-    public function selector(){
+
+    /*
+     * use to render to selector view
+     */
+    public function selector()
+    {
 
         $year = (new Info)->getColumnName("CAL_YEAR");
         $province = (new Info)->getColumnName("PROVINCE");
         $this->assign('title', 'selector');
-        $this->assign('year',$year);
-        $this->assign('province',$province);
+        $this->assign('year', $year);
+        $this->assign('province', $province);
         $this->render();
 
     }
 
-//    public function getInfoFromSelector(){
-//
-//    }
+
 }

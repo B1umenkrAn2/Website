@@ -37,7 +37,7 @@ class InfoController extends Controller
 
 
     /*
-  * get selector require from db and than pass to view
+  * get selector require data from db and than pass to view
   */
     public function selected()
     {

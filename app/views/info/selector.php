@@ -35,12 +35,12 @@
 
             <div class="col-2">
                 <label>table select</label>
-                info <input type="checkbox" value="Profiles" checked disabled>
-                Profiles <input type="checkbox" value="Profiles" >
-                Horizons <input type="checkbox" value="Horizons">
+                info <input type="checkbox" checked disabled>
+                Profiles <input type="checkbox" value="profiles" >
+                Horizons <input type="checkbox" value="horizons">
                 chemical <input type="checkbox" value="chemical">
-                Physical <input type="checkbox" value="Physical">
-                Morphology <input type="checkbox" value="Morphology">
+                Physical <input type="checkbox" value="physical">
+                Morphology <input type="checkbox" value="morphology">
             </div>
             <div class="col-2"></div>
 

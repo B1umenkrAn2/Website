@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="yearAndLocation" method="post">
+    <form action="selected" method="post">
         <div class="row">
 
             <div class="col-sm-6">

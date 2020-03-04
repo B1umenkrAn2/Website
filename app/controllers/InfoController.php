@@ -19,19 +19,6 @@ class InfoController extends Controller
         $this->render();
     }
 
-    /*
-     * get selector require from db and than pass to view
-     */
-    public function yearAndLocation()
-    {
-        $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
-        $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
-        $items = (new Info)->where($where, $param)->fetchAll();
-        $this->assign('title', 'year&location');
-        $this->assign('entities', $items);
-        $this->render();
-    }
-
 
     /*
      * use to render to selector view
@@ -46,6 +33,20 @@ class InfoController extends Controller
         $this->assign('province', $province);
         $this->render();
 
+    }
+
+
+    /*
+  * get selector require from db and than pass to view
+  */
+    public function selected()
+    {
+        $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
+        $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
+        $items = (new Info)->where($where, $param)->fetchAll();
+        $this->assign('title', 'year&location');
+        $this->assign('entities', $items);
+        $this->render();
     }
 
 

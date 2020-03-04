@@ -22,7 +22,7 @@ class InfoController extends Controller
     /*
      * get selector require from db and than pass to view
      */
-    public function selectBaseOnYearLocation()
+    public function yearAndLocation()
     {
         $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
         $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);

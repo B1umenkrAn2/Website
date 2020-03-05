@@ -45,52 +45,30 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Info_ID</th>
-                                    <th>PEDON_ID</th>
-                                    <th>CAL_YEAR</th>
-                                    <th>PROVINCE</th>
-                                    <th>LOCALITY</th>
-                                    <th>DD_LAT</th>
-                                    <th>DD_LONG</th>
-                                    <th>CONF_METRS</th>
-                                    <th>ELEVATION</th>
-                                    <th>EXTENT</th>
-                                    <th>PURPOSE</th>
-                                    <th>CSSC_ORDER</th>
-                                    <th>CSSC_GTGRP</th>
-                                    <th>CSSC_SBGRP</th>
-                                    <th>CSSC_NAME</th>
-                                    <th>CSSC_CODE</th>
-                                    <th>TX_FIT</th>
-                                    <th>TX_FACTOR1</th>
-                                    <th>TX_FACTOR2</th>
-                                    <th>LANDUSE</th>
-                                    <th>REPORT_ID</th>
-                                    <th>PED_NOTES</th>
-                                    <th>N_SITES</th>
-                                    <th>N_PROFILES</th>
-                                    <th>N_CHEMICAL</th>
-                                    <th>N_MORPH</th>
-                                    <th>N_HORIZONS</th>
-                                    <th>N_PHYSICAL</th>
+                                    <?php
+                                    if (isset($entities[0])) {
+                                        $tableName = $entities[0];
+
+                                        foreach ($tableName as $key => $value):
+                                            echo "<th>$key</th>";
+                                        endforeach;
+                                    } else {
+                                        echo "<th></th>";
+                                    }
+
+                                    ?>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-<!--                                <tr>-->
-<!--                                    <td>Trident</td>-->
-<!--                                    <td>Internet-->
-<!--                                        Explorer 4.0-->
-<!--                                    </td>-->
-<!--                                    <td>Win 95+</td>-->
-<!--                                    <td> 4</td>-->
-<!--                                    <td>X</td>-->
-<!--                                </tr>-->
+
                                 <?php
-                                foreach ($entities as $info){
+
+                                foreach ($entities as $info) {
 
                                     echo "<tr>";
-                                    foreach ($info as $data ){
-                                    echo "<td style='text-align: center'>".$data."</td>";
+                                    foreach ($info as $data) {
+                                        echo "<td style='text-align: center'>" . $data . "</td>";
                                     }
                                     echo "</tr>";
                                 }
@@ -100,39 +78,23 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Info_ID</th>
-                                    <th>PEDON_ID</th>
-                                    <th>CAL_YEAR</th>
-                                    <th>PROVINCE</th>
-                                    <th>LOCALITY</th>
-                                    <th>DD_LAT</th>
-                                    <th>DD_LONG</th>
-                                    <th>CONF_METRS</th>
-                                    <th>ELEVATION</th>
-                                    <th>EXTENT</th>
-                                    <th>PURPOSE</th>
-                                    <th>CSSC_ORDER</th>
-                                    <th>CSSC_GTGRP</th>
-                                    <th>CSSC_SBGRP</th>
-                                    <th>CSSC_NAME</th>
-                                    <th>CSSC_CODE</th>
-                                    <th>TX_FIT</th>
-                                    <th>TX_FACTOR1</th>
-                                    <th>TX_FACTOR2</th>
-                                    <th>LANDUSE</th>
-                                    <th>REPORT_ID</th>
-                                    <th>PED_NOTES</th>
-                                    <th>N_SITES</th>
-                                    <th>N_PROFILES</th>
-                                    <th>N_CHEMICAL</th>
-                                    <th>N_MORPH</th>
-                                    <th>N_HORIZONS</th>
-                                    <th>N_PHYSICAL</th>
+                                    <?php
+                                    if (isset($entities[0])) {
+                                        $tableName = $entities[0];
+                                        foreach ($tableName as $key => $value):
+                                            echo "<th>$key</th>";
+                                        endforeach;
+                                    } else {
+                                        echo "<th></th>";
+                                    } ?>
                                 </tr>
                                 </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
+                        <div class="col-2">
+                        <input onclick="window.location.href='selector'" type="button" value="back" >
+                        </div>
                     </div>
                     <!-- /.card -->
                 </div>

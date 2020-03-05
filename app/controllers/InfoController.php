@@ -48,12 +48,13 @@ class InfoController extends Controller
         $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
 
         $info = new Info();
-
+//        var_dump($_POST);
         if (isset($_POST['tables']) ) {
             $tables = $this::tableSelector2(($_POST['tables']));
             $info->setJoinTables($tables);
         }
         $items = ($info)->where($where, $param)->fetchAll();
+//        var_dump($items[1]);
         $this->assign('entities', $items);
         $this->assign('title', 'year&location');
         $this->render();
@@ -71,8 +72,15 @@ class InfoController extends Controller
             '4' => " left join Physical P on Info.PEDON_ID = P.PEDON_ID",
             '5' => " left join Chemical C on Info.PEDON_ID = C.PEDON_ID",
         );
-        
-        return array_replace($arr, $tables);
+
+//        $count= count($arr);
+
+
+
+
+
+
+        return array_intersect_key($tables, $arr);
     }
 
 

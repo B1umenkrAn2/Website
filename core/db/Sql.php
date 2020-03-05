@@ -1,6 +1,7 @@
 <?php
 namespace core\db;
 
+use PDO;
 use \PDOStatement;
 
 class Sql
@@ -60,13 +61,14 @@ class Sql
     // get all
     public function fetchAll()
     {
-        $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
-//        var_dump($sql);
+        $sql = sprintf("select * from %s %s", $this->table, $this->filter);
+        var_dump($sql);
         $sth = Db::pdo()->prepare($sql);
         $sth = $this->formatParam($sth, $this->param);
         $sth->execute();
 
-        return $sth->fetchAll();
+//            var_dump($sth);
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
@@ -135,7 +137,7 @@ class Sql
     {
         foreach ($params as $param => &$value) {
             $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
-            var_dump($param);
+//            var_dump($param);
             $sth->bindParam($param, $value);
         }
 

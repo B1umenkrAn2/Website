@@ -43,14 +43,14 @@ class InfoController extends Controller
     {
         $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
         $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
-        $tables =array(
-            $_POST['Profiles'],
-            $_POST['Profiles'],
-            $_POST['Profiles'],
-            $_POST['Profiles'],
-            $_POST['Profiles'],
-            $_POST['Profiles'],
+        $tables = array(
+            'profiles' => $_POST['profiles'],
+            'Horizon' => $_POST['Horizon'],
+            'chemical' => $_POST['chemical'],
+            'physical' => $_POST['physical'],
+            'morphology' => $_POST['morphology'],
         );
+        var_dump($tables);
         $items = (new Info)->where($where, $param)->fetchAll();
         $this->assign('title', 'year&location');
         $this->assign('entities', $items);

@@ -31,6 +31,7 @@ class InfoController extends Controller
 
         $year = (new Info)->getColumnAttributes("CAL_YEAR");
         $province = (new Info("info"))->getColumnAttributes("PROVINCE");
+        sort($year);
         $this->assign('title', 'selector');
         $this->assign('year', $year);
         $this->assign('province', $province);
@@ -49,7 +50,7 @@ class InfoController extends Controller
 
         $info = new Info();
 //        var_dump($_POST);
-        if (isset($_POST['tables']) ) {
+        if (isset($_POST['tables'])) {
             $tables = $this::tableSelector2(($_POST['tables']));
             $info->setJoinTables($tables);
         }
@@ -74,10 +75,6 @@ class InfoController extends Controller
         );
 
 //        $count= count($arr);
-
-
-
-
 
 
         return array_intersect_key($tables, $arr);

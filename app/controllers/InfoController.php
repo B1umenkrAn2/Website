@@ -2,8 +2,11 @@
 
 namespace app\controllers;
 
+
 use app\models\Info;
 use core\base\Controller;
+use tools;
+
 
 class InfoController extends Controller
 {
@@ -26,8 +29,8 @@ class InfoController extends Controller
     public function selector()
     {
 
-        $year = (new Info)->getColumnName("CAL_YEAR");
-        $province = (new Info)->getColumnName("PROVINCE");
+        $year = (new Info)->getColumnAttributes("CAL_YEAR");
+        $province = (new Info("info"))->getColumnAttributes("PROVINCE");
         $this->assign('title', 'selector');
         $this->assign('year', $year);
         $this->assign('province', $province);
@@ -43,18 +46,33 @@ class InfoController extends Controller
     {
         $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
         $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
-        $tables = array(
-            'profiles' => $_POST['profiles'],
-            'Horizon' => $_POST['Horizon'],
-            'chemical' => $_POST['chemical'],
-            'physical' => $_POST['physical'],
-            'morphology' => $_POST['morphology'],
-        );
-        var_dump($tables);
-        $items = (new Info)->where($where, $param)->fetchAll();
-        $this->assign('title', 'year&location');
+
+        $info = new Info();
+
+        if (isset($_POST['tables']) ) {
+            $tables = $this::tableSelector2(($_POST['tables']));
+            $info->setJoinTables($tables);
+        }
+        $items = ($info)->where($where, $param)->fetchAll();
         $this->assign('entities', $items);
+        $this->assign('title', 'year&location');
         $this->render();
+
+    }
+
+    public function tableSelector2($arr)
+    {
+
+        $tables = array(
+            '0' => " left join Sites S on Info.PEDON_ID = S.PEDON_ID ",
+            '1' => " left join Profiles P2 on Info.PEDON_ID = P2.PEDON_ID",
+            '2' => " left join Horizons H on Info.PEDON_ID = H.PEDON_ID",
+            '3' => " left join Morphology M on H.PEDON_ID = M.PEDON_ID",
+            '4' => " left join Physical P on Info.PEDON_ID = P.PEDON_ID",
+            '5' => " left join Chemical C on Info.PEDON_ID = C.PEDON_ID",
+        );
+
+        return array_replace($arr, $tables);
     }
 
 

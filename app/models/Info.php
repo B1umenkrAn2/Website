@@ -15,6 +15,21 @@ class Info extends Model
      */
     protected $table = 'Info';
 
+
+    public function setTable($tables){
+        $this->table=$tables;
+    }
+
+    public function setJoinTables($arr){
+        $joinedTable = "info";
+        foreach ($arr as $table){
+            $joinedTable .= $table;
+        }
+        $this->table=$joinedTable;
+//        var_dump($joinedTable);
+    }
+
+
     /**
      *
      * @param $keyword search keyword (String)
@@ -31,7 +46,7 @@ class Info extends Model
         return $sth->fetchAll();
     }
 
-    public function getColumnName($ColumnName){
+    public function getColumnAttributes($ColumnName){
 
         $sql = "select distinct ".$ColumnName.' from '.$this->table;
  /*       echo "-----------------";
@@ -41,6 +56,10 @@ class Info extends Model
         $sth->execute();
 
         return $sth->fetchAll();
+    }
+
+    public function getJoinData(){
+
     }
 }
 

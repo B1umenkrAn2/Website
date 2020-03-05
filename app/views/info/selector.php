@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label>Select province</label>
                     <select class="form-control" name="province">
-                       <?php
+                        <?php
                         foreach ($province as $info) {
                             foreach ($info as $data) {
                                 echo "<option value='$data'>" . $data . "</option>";
@@ -34,13 +34,28 @@
             </div>
 
             <div class="col-2">
-                <label>table select</label>
-                info <input type="checkbox" checked disabled>
-                Profiles <input type="checkbox" value="profiles" >
-                Horizons <input type="checkbox" value="horizons">
-                chemical <input type="checkbox" value="chemical">
-                Physical <input type="checkbox" value="physical">
-                Morphology <input type="checkbox" value="morphology">
+                table select
+                <label>info</label>
+
+                <input type="checkbox" checked disabled>
+                <label>Sites
+                    <input type="checkbox" name="tables[]" value="0">
+                </label>
+                <label>Profiles
+                    <input type="checkbox" name="tables[]" value="1">
+                </label>
+                <label>Horizons
+                    <input type="checkbox" name="tables[]" value="2">
+                </label>
+                <label>Morphology
+                    <input type="checkbox" name="tables[]" value="3">
+                </label>
+                <label>Physical
+                    <input type="checkbox" name="tables[]" value="4">
+                </label>
+                <label>chemical
+                    <input type="checkbox" name="tables[]" value="5">
+                </label>
             </div>
             <div class="col-2"></div>
 

@@ -63,7 +63,7 @@
 
 
         </div>
-        <button type="submit">submit</button>
-        <input type="button" onclick="">
+        <input type="submit" value="Submit"></input>
+        <input type="button" onclick="window.location.href='http://localhost'" value="back">
     </form>
 </div>

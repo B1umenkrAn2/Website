@@ -40,6 +40,8 @@ class InfoController extends Controller
     }
 
 
+
+
     /*
   * get selector require data from db and than pass to view
   */

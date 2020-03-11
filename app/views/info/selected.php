@@ -3,7 +3,7 @@
 <!--        <tr>-->
 <!--            <td>--><?php //echo $item['INFO_ID'] ?><!--</td>-->
 <!--            <td>-->
-<!--                --><?php //echo $item['PEDON_ID'] ?>
+<!--                --><?php //echo $_SERVER['REQUEST_URI']?>
 <!--                -->
 <!--    --><?php //endforeach ?>
 <!--</table>-->
@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="./">Home</a></li>
+                            <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
                             <li class="breadcrumb-item active">InfoTable</li>
                         </ol>
                     </div>
@@ -94,6 +94,7 @@
                         <!-- /.card-body -->
                         <div class="col-2">
                         <input onclick="window.location.href='selector'" type="button" value="back" >
+                            <input type="button" onclick="window.location.href='http://localhost/download'" value="home">
                         </div>
                     </div>
                     <!-- /.card -->

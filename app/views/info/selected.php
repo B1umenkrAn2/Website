@@ -94,7 +94,7 @@
                         <!-- /.card-body -->
                         <div class="col-2">
                         <input onclick="window.location.href='selector'" type="button" value="back" >
-                            <input type="button" onclick="window.location.href='http://localhost/download'" value="home">
+                            <input type="button" onclick="window.location.href='http://localhost/'" value="home">
                         </div>
                     </div>
                     <!-- /.card -->

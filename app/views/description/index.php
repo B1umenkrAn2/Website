@@ -1,5 +1,26 @@
 <!-- start of wrapper -->
-<script></script>
+<script>
+    $(".talbes").click(function () {
+        var tables = $(".tables");
+        if (tables.val()==='Info'){
+            $("#descTable")
+        }else if (tables.val()==='Chemical'){
+
+        }else if (tables.val()==='Sites'){
+
+        }else if (tables.val()==='Profiles'){
+
+        }else if (tables.val()==='Physical'){
+
+        }else if (tables.val()==='Morphology'){
+
+        }else if (tables.val()==='Horizons'){
+
+        }
+
+    })
+
+</script>
 <div class="wrapper">
 
 
@@ -32,6 +53,32 @@
     <section class="content">
         <div class="container-fluid">
             <h1 >Description page</h1>
+            <div class="row col-12">
+                <div class="col-4">
+                    <input type="button" value="Chemical"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+                <div class="col-4">
+                    <input type="button" value="info"  onclick=""/> </div>
+
+
+                </div>
+            <div class="row col-12"  >
+                <table id="descTable">
+
+                </table>
+            </div>
+            </div>
         </div>
         <!-- end of Main content -->
 </div>

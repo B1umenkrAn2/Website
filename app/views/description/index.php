@@ -1,24 +1,17 @@
 <!-- start of wrapper -->
 <script>
-    $(".talbes").click(function () {
-        var tables = $(".tables");
-        if (tables.val() === 'Info') {
-            $("#descTable")
-        } else if (tables.val() === 'Chemical') {
 
-        } else if (tables.val() === 'Sites') {
+    function display($table) {
+        var info = document.getElementById($table);
 
-        } else if (tables.val() === 'Profiles') {
-
-        } else if (tables.val() === 'Physical') {
-
-        } else if (tables.val() === 'Morphology') {
-
-        } else if (tables.val() === 'Horizons') {
-
+        if (info.style.display ==='' ){
+            info.style.display = 'none';
+        }else if (info.style.display === 'none'){
+            info.style.display = '';
         }
+    }
 
-    })
+
 
 </script>
 <div class="wrapper">
@@ -60,27 +53,23 @@
                     Canada.
                 </p>
                 <div class="row col-12">
-                    <div class="col-4">
-                        <input type="button" value="Chemical" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-                    <div class="col-4">
-                        <input type="button" value="info" onclick=""/></div>
-
-
+                    <div class="col-1">
+                        <input type="button" value="Info" onclick="display('Info')"/></div>
+                    <div class="col-1">
+                        <input type="button" value="Sites" onclick="display('Sites')"/></div>
+                    <div class="col-1">
+                        <input type="button" value="Profiles" onclick="display('Profiles')"/></div>
+                    <div class="col-1">
+                        <input type="button" value="Horizons" onclick="display('Horizons')"/></div>
+                    <div class="col-1">
+                        <input type="button" value="Morphology" onclick="display('Morphology')"/></div>
+                    <div class="col-1">
+                        <input type="button" value="Physical" onclick="display('Physical')"/></div>
+                    <div class="col-1">
+                        <input type="button" value="Chemical" onclick="display('Chemical')"/></div>
                 </div>
                 <div class="row col-12">
-                    <table id="infoTable" class="col-12">
+                    <table id="Info" style="display: none" class="col-12">
                         <tr>
                             <td>Column name</td>
                             <td>Definition</td>
@@ -224,7 +213,7 @@
 
                     </table>
 
-                    <table id="sitesTable" class="col-12">
+                    <table id="Sites" style="display: none"  class="col-12">
                         <tr>
                             <td>Column name</td>
                             <td>Definition</td>
@@ -327,7 +316,7 @@
                         <!--                     sites-->
                     </table>
 
-                    <table id="profiles" class="col-12">
+                    <table id="Profiles" style="display: none" class="col-12">
 
                         <tr>
                             <td>PEDON_ID</td>
@@ -419,7 +408,7 @@
                         <!--                    // profiles-->
                     </table>
 
-                    <table id="horizons" class="col-12">
+                    <table id="Horizons"style="display: none"  class="col-12">
 
                         <tr>
                             <td>PEDON_ID</td>
@@ -496,7 +485,7 @@
                         <!--                    // horizons-->
                     </table>
 
-                    <table id="Morphology" class="col-12">
+                    <table id="Morphology" style="display: none" class="col-12">
 
                         <tr>
                             <td>PEDON_ID</td>
@@ -635,7 +624,7 @@
                         <!--                    //Morphology-->
                     </table>
 
-                    <table id="Chemical" class="col-12">
+                    <table id="Chemical" style="display: none"  class="col-12">
 
                         <tr>
                             <td>PEDON_ID</td>
@@ -769,7 +758,7 @@
                         <!--                    //Chemical-->
                     </table>
 
-                    <table id="Physical" class="col-12">
+                    <table id="Physical"style="display: none"  class="col-12">
 
                         <tr>
                             <td>PEDON_ID</td>

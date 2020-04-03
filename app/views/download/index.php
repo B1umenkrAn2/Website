@@ -1,5 +1,4 @@
-<!-- start of wrapper -->
-<script></script>
+
 <div class="wrapper">
 
 

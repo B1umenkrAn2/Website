@@ -68,21 +68,6 @@ class Sql
         return $sth->fetchAll();
     }
 
-    public function fetchAllforJoin()
-    {
-        $sql = sprintf("select * from %s %s", $this->table, $this->filter);
-        var_dump($sql);
-        $sth = Db::pdo()->prepare($sql);
-        $sth = $this->formatParam($sth, $this->param);
-        $sth->execute();
-
-//            var_dump($sth);
-        return $sth->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-
-
-
 
     // get one
     public function fetch()

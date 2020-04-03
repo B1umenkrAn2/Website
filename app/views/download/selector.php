@@ -1,21 +1,22 @@
+
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Selector</h1>
+                <h1>Download Selector</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
-                    <li class="breadcrumb-item active">Info Selector</li>
+                    <li class="breadcrumb-item active">Download</li>
                 </ol>
             </div>
         </div>
     </div><!-- /.container-fluid -->
 </section>
-
 <div class="container">
-    <form action="selected" method="post">
+    <form action="downloadFile" method="post">
         <div class="row">
 
             <div class="col-2">

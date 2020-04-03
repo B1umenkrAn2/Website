@@ -16,9 +16,6 @@ class Info extends Model
     protected $table = 'Info';
 
 
-    public function setTable($tables){
-        $this->table=$tables;
-    }
 
     public function setJoinTables($arr){
         $joinedTable = "info";
@@ -58,8 +55,6 @@ class Info extends Model
         return $sth->fetchAll();
     }
 
-    public function getJoinData(){
 
-    }
 }
 

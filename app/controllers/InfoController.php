@@ -5,7 +5,6 @@ namespace app\controllers;
 
 use app\models\Info;
 use core\base\Controller;
-use tools;
 
 
 class InfoController extends Controller
@@ -51,15 +50,15 @@ class InfoController extends Controller
         $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
 
         $info = new Info();
-//        var_dump($_POST);
         if (isset($_POST['tables'])) {
             $tables = $this::tableSelector2(($_POST['tables']));
             $info->setJoinTables($tables);
         }
         $items = ($info)->where($where, $param)->fetchAll();
-//        var_dump($items[1]);
+        $downloadInfo=[trim($_POST['year']),trim($_POST['province'])];
+        $this->assign('downloadInfo',$downloadInfo);
         $this->assign('entities', $items);
-        $this->assign('title', 'year&location');
+        $this->assign('title', 'selected');
         $this->render();
 
     }
@@ -76,10 +75,12 @@ class InfoController extends Controller
             '5' => " left join Chemical C on Info.PEDON_ID = C.PEDON_ID",
         );
 
-//        $count= count($arr);
-
-
         return array_intersect_key($tables, $arr);
+    }
+
+    public function download(){
+
+
     }
 
 

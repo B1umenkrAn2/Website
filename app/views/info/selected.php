@@ -1,12 +1,4 @@
-<!--<table>-->
-<!--    --><?php //foreach ($entities as $item): ?>
-<!--        <tr>-->
-<!--            <td>--><?php //echo $item['INFO_ID'] ?><!--</td>-->
-<!--            <td>-->
-<!--                --><?php //echo $_SERVER['REQUEST_URI']?>
-<!--                -->
-<!--    --><?php //endforeach ?>
-<!--</table>-->
+<?php //var_dump($entities); ?>
 
 <!-- start of wrapper -->
 <div class="wrapper">
@@ -93,8 +85,9 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="col-2">
-                        <input onclick="window.location.href='selector'" type="button" value="back" >
+                            <input onclick="window.location.href='selector'" type="button" value="back" >
                             <input type="button" onclick="window.location.href='http://localhost/'" value="home">
+                            <input type="button" onclick="window.location.href='http://localhost/download?year=<?php echo $downloadInfo[0] ?>&localtion=<?php echo $downloadInfo[1] ?>'" value="download">
                         </div>
                     </div>
                     <!-- /.card -->

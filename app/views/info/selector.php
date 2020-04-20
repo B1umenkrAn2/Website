@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
-                    <li class="breadcrumb-item active">Info Selector</li>
+                    <li class="breadcrumb-item active">Data Selector</li>
                 </ol>
             </div>
         </div>
@@ -16,13 +16,13 @@
 
 <div class="container">
     <form action="selected" method="post">
-        <div class="row">
+        <div >
 
             <div class="col-2">
                 <!-- select -->
-                <div class="form-group">
+                <div >
                     <label>Select Year</label>
-                    <select class="form-control" name="year">
+                    <select  name="year">
                         <?php
                         foreach ($year as $info) {
                             foreach ($info as $data) {
@@ -35,9 +35,9 @@
             </div>
             <div class="col-4">
                 <!-- select -->
-                <div class="form-group">
+                <div >
                     <label>Select province</label>
-                    <select class="form-control" name="province">
+                    <select  name="province">
                         <?php
                         foreach ($province as $info) {
                             foreach ($info as $data) {
@@ -73,7 +73,7 @@
                     <input type="checkbox" name="tables[]" value="5">
                 </label>
             </div>
-            <div class="col-2"></div>
+
 
 
         </div>

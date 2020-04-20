@@ -15,7 +15,7 @@
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="http://localhost/download">Home</a></li>
+                        <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
                         <li class="breadcrumb-item active">Home</li>
                     </ol>
                 </div>

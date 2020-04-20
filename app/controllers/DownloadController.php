@@ -37,8 +37,14 @@ class DownloadController extends Controller
             $location = $_POST['province'];
             if (isset($_POST['tables']))
                 $table = $_POST['tables'];
-            $filepath = $this->createFile($this->dataPrepare($year, $location, $table));
-            $this->assign("download", $filepath);
+            $data = $this->dataPrepare($year, $location, $table);
+//            var_dump($data);
+            if ($data) {
+                $filepath = $this->createFile($data);
+                $this->assign("download", $filepath);
+            } else {
+                $this->assign("nodata","The data you select does not exist!");
+            }
             $this->assign('title', 'Download Page');
             $this->render();
         }else{
@@ -49,17 +55,23 @@ class DownloadController extends Controller
 
     private function createFile($arr)
     {
-        $time = time();
-        $fileName = 'static/download/Pedon_data_' . $time . '.csv';
-        $fileObj = new SplFileObject($fileName, 'w');
-        $cname = array_keys($arr[0]);
-        $fileObj->fputcsv($cname);
-        foreach ($arr as $value) {
-            $fileObj->fputcsv($value);
+
+        if (isset($arr)) {
+
+
+            $time = time();
+            $fileName = 'static/download/Pedon_data_' . $time . '.csv';
+            $fileObj = new SplFileObject($fileName, 'w');
+            $cname = array_keys($arr[0]);
+            $fileObj->fputcsv($cname);
+            foreach ($arr as $value) {
+                $fileObj->fputcsv($value);
+            }
+
+            return $fileName;
+        } else {
+            return null;
         }
-
-        return $fileName;
-
     }
 
     private function dataPrepare($year, $location, $table)

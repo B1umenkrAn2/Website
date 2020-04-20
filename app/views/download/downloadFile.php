@@ -31,8 +31,13 @@
         <section class="content">
             <div class="container-fluid">
                 <h1 >download page</h1>
+                <?php if (!isset($nodata)): ?>
                 <input type="button"  value="Download" onclick="window.location.href='http://localhost/<?php echo $download ?>'">
+                <?php else:  ?>
+                <p><?php echo $nodata ?></p>
+                <?php endif; ?>
                 <input type="button"  value="Home" onclick="window.location.href='http://localhost/'">
+                <input type="button" value="back" onclick="window.location.href='http://localhost/download/selector'">
             </div>
             <!-- end of Main content -->
     </div>

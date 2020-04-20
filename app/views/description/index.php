@@ -52,23 +52,16 @@
                     central repository for storing and disseminating location-specific (pedon) soils data from across
                     Canada.
                 </p>
-                <div class="row col-12">
-                    <div class="col-1">
-                        <input type="button" value="Info" onclick="display('Info')"/></div>
-                    <div class="col-1">
-                        <input type="button" value="Sites" onclick="display('Sites')"/></div>
-                    <div class="col-1">
-                        <input type="button" value="Profiles" onclick="display('Profiles')"/></div>
-                    <div class="col-1">
-                        <input type="button" value="Horizons" onclick="display('Horizons')"/></div>
-                    <div class="col-1">
-                        <input type="button" value="Morphology" onclick="display('Morphology')"/></div>
-                    <div class="col-1">
-                        <input type="button" value="Physical" onclick="display('Physical')"/></div>
-                    <div class="col-1">
-                        <input type="button" value="Chemical" onclick="display('Chemical')"/></div>
+                <div class="row col-12" style="margin: auto">
+                    <input type="button" value="Info" onclick="display('Info')"/>
+                    <input type="button" value="Sites" onclick="display('Sites')"/>
+                    <input type="button" value="Profiles" onclick="display('Profiles')"/>
+                    <input type="button" value="Horizons" onclick="display('Horizons')"/>
+                    <input type="button" value="Morphology" onclick="display('Morphology')"/>
+                    <input type="button" value="Physical" onclick="display('Physical')"/>
+                    <input type="button" value="Chemical" onclick="display('Chemical')"/></div>
                 </div>
-                <div class="row col-12">
+                <div class="row col-12" style="margin: auto;">
                     <table id="Info" style="display: none" class="col-12">
                         <tr>
                             <td>Column name</td>

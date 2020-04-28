@@ -43,7 +43,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="<?php echo fullUrl?>info/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="http://<?php echo fullUrl?>info/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -74,7 +74,7 @@
                         <div class="icon">
                             <i class="ion ion-person"></i>
                         </div>
-                        <a href="http://<?php echo fullUrl ?>/Management" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="http://<?php echo fullUrl ?>Management" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

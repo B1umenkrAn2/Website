@@ -87,7 +87,6 @@
                         <div class="col-2">
                             <input onclick="window.location.href='selector'" type="button" value="back" >
                             <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="home">
-                            <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>download?year=<?php echo $downloadInfo[0] ?>&localtion=<?php echo $downloadInfo[1] ?>'" value="download">
                         </div>
                     </div>
                     <!-- /.card -->

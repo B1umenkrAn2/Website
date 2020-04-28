@@ -7,6 +7,8 @@ define('APP_DEBUG', true);
 
 define('URL','/cansis/pedonviewer/');
 define('fullUrl','gracilis.carleton.ca/cansis/pedonviewer/');
+//define('fullUrl','localhost/cansis/pedonviewer/');
+
 
 //loading framework file
 require(APP_PATH . 'core/core.php');

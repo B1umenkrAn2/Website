@@ -39,6 +39,7 @@ class core
         $param = array();
 
         $url = $_SERVER['REQUEST_URI'];
+        echo $url;
         if ($url2 = strstr($url, URL)) {
             $url3 = substr($url, strlen(URL), strlen($url));
             $url = $url3;

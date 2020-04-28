@@ -39,6 +39,13 @@ class core
         $param = array();
 
         $url = $_SERVER['REQUEST_URI'];
+        if ($url2 = strstr($url, URL)) {
+            $url3 = substr($url, strlen(URL), strlen($url));
+            $url = $url3;
+        }
+
+ //       echo '</br>';
+
         // clean content before ?
         $position = strpos($url, '?');
         $url = $position === false ? $url : substr($url, 0, $position);

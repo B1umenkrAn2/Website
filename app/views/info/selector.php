@@ -6,7 +6,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
+                    <li class="breadcrumb-item"><a href="http://<?php echo fullUrl ?>">Home</a></li>
                     <li class="breadcrumb-item active">Data Selector</li>
                 </ol>
             </div>
@@ -77,7 +77,7 @@
 
 
         </div>
-        <input type="submit" value="Submit"></input>
-        <input type="button" onclick="window.location.href='http://localhost'" value="back">
+        <input type="submit" value="Submit" />
+        <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
     </form>
 </div>

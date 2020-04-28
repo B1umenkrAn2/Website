@@ -14,7 +14,7 @@
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
+                            <li class="breadcrumb-item"><a href="http://<?php echo fullUrl ?>">Home</a></li>
                             <li class="breadcrumb-item active">Download page</li>
                         </ol>
                     </div>
@@ -32,12 +32,12 @@
             <div class="container-fluid">
                 <h1 >download page</h1>
                 <?php if (!isset($nodata)): ?>
-                <input type="button"  value="Download" onclick="window.location.href='http://localhost/<?php echo $download ?>'">
+                <input type="button"  value="Download" onclick="window.location.href='http://<?php echo fullUrl.$download ?>'">
                 <?php else:  ?>
                 <p><?php echo $nodata ?></p>
                 <?php endif; ?>
-                <input type="button"  value="Home" onclick="window.location.href='http://localhost/'">
-                <input type="button" value="back" onclick="window.location.href='http://localhost/download/selector'">
+                <input type="button"  value="Home" onclick="window.location.href='http://<?php echo fullUrl ?>'">
+                <input type="button" value="back" onclick="window.location.href='http://<?php echo fullUrl ?>download/selector'">
             </div>
             <!-- end of Main content -->
     </div>

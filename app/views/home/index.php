@@ -15,7 +15,7 @@
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
+                        <li class="breadcrumb-item"><a href="http://<?php echo fullUrl ?>">Home</a></li>
                         <li class="breadcrumb-item active">Home</li>
                     </ol>
                 </div>
@@ -43,7 +43,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="info/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo fullUrl?>info/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -59,7 +59,7 @@
                                 <i class="ion ion-ios-albums"></i>
                             </div>
 
-                        <a href="http://localhost/Description" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="http://<?php echo fullUrl ?>Description" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -74,7 +74,7 @@
                         <div class="icon">
                             <i class="ion ion-person"></i>
                         </div>
-                        <a href="http://localhost/Management" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="http://<?php echo fullUrl ?>/Management" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -89,7 +89,7 @@
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="http://localhost/download/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="http://<?php echo fullUrl ?>download/selector" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

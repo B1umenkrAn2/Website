@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="http://localhost">Home</a></li>
+                            <li class="breadcrumb-item"><a href="http://<?php echo fullUrl ?>">Home</a></li>
                             <li class="breadcrumb-item active">InfoTable</li>
                         </ol>
                     </div>
@@ -86,8 +86,8 @@
                         <!-- /.card-body -->
                         <div class="col-2">
                             <input onclick="window.location.href='selector'" type="button" value="back" >
-                            <input type="button" onclick="window.location.href='http://localhost/'" value="home">
-                            <input type="button" onclick="window.location.href='http://localhost/download?year=<?php echo $downloadInfo[0] ?>&localtion=<?php echo $downloadInfo[1] ?>'" value="download">
+                            <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="home">
+                            <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>download?year=<?php echo $downloadInfo[0] ?>&localtion=<?php echo $downloadInfo[1] ?>'" value="download">
                         </div>
                     </div>
                     <!-- /.card -->

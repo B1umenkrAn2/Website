@@ -7,7 +7,9 @@
     <!--    bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
 </head>
 
@@ -31,23 +33,23 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="//<?php echo fullUrl?>info/selector" class="nav-link">Database</a></li>
                     <li class="nav-item"><a href="//<?php echo fullUrl?>Description" class="nav-link">Description</a></li>
-                    <li class="nav-item"><a href="//<?php echo fullUrl?>download/selector" class="nav-link">Data download</a></li>
+<!--                    <li class="nav-item"><a href="//--><?php //echo fullUrl?><!--download/selector" class="nav-link">Data download</a></li>-->
                     <li class="nav-item"><a href="//<?php echo fullUrl?>Management" class="nav-link">Management</a></li>
 
                 </ul>
             </div>
-            <div>
-                <div >
+
+                <div class="d-none d-lg-block " >
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="//<?php echo fullUrl ?>">Home</a></li>
                         <li class="breadcrumb-item active text-capitalize"><?php echo $title ?></li>
                     </ol>
                 </div>
-            </div>
+
         </nav>
     </div>
-    <div class="myHeader bg-warning text-dark text-center py-5">
+    <div class=" myHeader bg-warning text-dark text-center py-5">
         <h1 class="display-3 mb-3">National padon data viewer</h1>
     </div>
 </header>
-<main>
+<main >

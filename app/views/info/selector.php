@@ -3,7 +3,7 @@
 <section class="container my-3">
     <form action="selected" method="post" >
         <div class="row">
-            <div class="col-2 text-center">
+            <div class="col-lg-4 text-center">
                 <!-- select -->
                 <div >
                     <label>Select Year</label>
@@ -18,7 +18,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-4 text-center">
+            <div class="col-lg-4 text-center">
                 <!-- select -->
                 <div >
                     <label>Select province</label>
@@ -34,8 +34,8 @@
                 </div>
             </div>
 
-            <div class="col-2">
-                table select
+            <div class="col-lg-4 text-center">
+                <p>Table Select</p>
                 <label>info</label>
                 <input type="checkbox" checked disabled>
                 <label>Sites
@@ -58,7 +58,7 @@
                 </label>
             </div>
         </div>
-        <div class="container text-right">
+        <div class="container text-center">
         <input class="btn btn-primary" type="submit" value="Submit" />
         <input class="btn btn-primary" type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
         </div>

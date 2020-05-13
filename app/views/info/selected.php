@@ -3,7 +3,7 @@
         <section class="content">
             <h3 class="text-center">DataTable </h3>
             <div class="col-12">
-                <table class="table table-bordered table-striped">
+                <table id="selectedData" class="table table-striped table-bordered ">
                                 <thead>
                                 <tr>
                                     <?php

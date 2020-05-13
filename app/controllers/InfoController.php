@@ -31,7 +31,7 @@ class InfoController extends Controller
         $year = (new Info)->getColumnAttributes("CAL_YEAR");
         $province = (new Info("info"))->getColumnAttributes("PROVINCE");
         sort($year);
-        $this->assign('title', 'selector');
+        $this->assign('title', 'Data selector');
         $this->assign('year', $year);
         $this->assign('province', $province);
         $this->render();
@@ -58,7 +58,7 @@ class InfoController extends Controller
         $downloadInfo=[trim($_POST['year']),trim($_POST['province'])];
         $this->assign('downloadInfo',$downloadInfo);
         $this->assign('entities', $items);
-        $this->assign('title', 'selected');
+        $this->assign('title', 'Data selected');
         $this->render();
 
     }
@@ -78,10 +78,8 @@ class InfoController extends Controller
         return array_intersect_key($tables, $arr);
     }
 
-    public function download(){
 
 
-    }
 
 
 }

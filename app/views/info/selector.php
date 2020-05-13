@@ -1,24 +1,9 @@
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Data Selector</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="http://<?php echo fullUrl ?>">Home</a></li>
-                    <li class="breadcrumb-item active">Data Selector</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
 
-<div class="container">
-    <form action="selected" method="post">
-        <div >
 
-            <div class="col-2">
+<section class="container my-3">
+    <form action="selected" method="post" >
+        <div class="row">
+            <div class="col-2 text-center">
                 <!-- select -->
                 <div >
                     <label>Select Year</label>
@@ -33,7 +18,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4 text-center">
                 <!-- select -->
                 <div >
                     <label>Select province</label>
@@ -52,7 +37,6 @@
             <div class="col-2">
                 table select
                 <label>info</label>
-
                 <input type="checkbox" checked disabled>
                 <label>Sites
                     <input type="checkbox" name="tables[]" value="0">
@@ -73,11 +57,10 @@
                     <input type="checkbox" name="tables[]" value="5">
                 </label>
             </div>
-
-
-
         </div>
-        <input type="submit" value="Submit" />
-        <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
+        <div class="container text-right">
+        <input class="btn btn-primary" type="submit" value="Submit" />
+        <input class="btn btn-primary" type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
+        </div>
     </form>
-</div>
+</section>

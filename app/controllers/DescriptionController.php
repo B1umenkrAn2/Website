@@ -8,7 +8,7 @@ class DescriptionController extends Controller
 {
     public function index()
     {
-        $this->assign('title', 'Down');
+        $this->assign('title', 'Description');
         $this->render();
     }
 

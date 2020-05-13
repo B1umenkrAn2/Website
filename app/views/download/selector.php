@@ -1,24 +1,12 @@
 
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Download Selector</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="http://<?php echo fullUrl ?>">Home</a></li>
-                    <li class="breadcrumb-item active">Download</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-<div class="container">
-    <form action="downloadFile" method="post">
-        <div class="row">
+<section class="container">
 
+    <h2 class="text-center">Download Selector</h2>
+
+
+    <form action="downloadFile" class="text-center" method="post">
+        <div class="row">
             <div class="col-2">
                 <!-- select -->
                 <div class="form-group">
@@ -50,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-lg-2  col-sm-4">
                 table select
                 <label>info</label>
 
@@ -78,7 +66,9 @@
 
 
         </div>
-        <input type="submit" value="Submit" />
-        <input type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
+        <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+        <input type="button" class="btn btn-primary" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
+        </div>
     </form>
-</div>
+</section>

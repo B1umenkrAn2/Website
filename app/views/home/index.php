@@ -32,7 +32,7 @@
                     <div class="small-box ">
                         <h3>Management</h3>
                         <p>Admin login</p>
-                        <a class="btn btn-primary" href="Management" >More info</a>
+                        <a class="btn btn-primary" href="Management/login" >More info</a>
                     </div>
                 </div>
         </div>

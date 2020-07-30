@@ -1,8 +1,6 @@
 </main>
 
-<footer class=" text-muted text-center py-4">
-    Copyright @Agriculture and Agri-Food Canada
-</footer>
+
 
 
 

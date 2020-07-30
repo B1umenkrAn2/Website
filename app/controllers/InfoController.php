@@ -10,16 +10,6 @@ use core\base\Controller;
 class InfoController extends Controller
 {
 
-    /*
-     * get entire info table data
-     */
-    public function All()
-    {
-        $items = (new Info)->fetchAll();
-        $this->assign('title', 'info');
-        $this->assign('entities', $items);
-        $this->render();
-    }
 
 
     /*
@@ -42,10 +32,11 @@ class InfoController extends Controller
 
 
     /*
-  * get selector require data from db and than pass to view
-  */
+    * get selector require data from db and than pass to view
+    */
     public function selected()
     {
+//        var_dump($_POST);
         $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
         $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
 
@@ -63,7 +54,7 @@ class InfoController extends Controller
 
     }
 
-    public function tableSelector2($arr)
+    private function tableSelector2($arr)
     {
 
         $tables = array(

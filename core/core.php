@@ -54,10 +54,10 @@ class core
         $url = $position === false ? $url : substr($url, 0, $position);
         // delete "/"
 
-        // can be access url like index.php/{controller}/{action}
-        $position = strpos($url, 'index.php');
+        // can be access url like result.php/{controller}/{action}
+        $position = strpos($url, 'result.php');
         if ($position !== false) {
-            $url = substr($url, $position + strlen('index.php'));
+            $url = substr($url, $position + strlen('result.php'));
         }
 
         // delete content before “/”
@@ -86,10 +86,12 @@ class core
         // check the controller exist or not
         $controller = 'app\\controllers\\'. $controllerName . 'Controller';
         if (!class_exists($controller)) {
+//            header("HTTP/1.0 404 Not Found");
             exit($controller . 'controller not exist');
         }
         // check the action exist or not
         if (!method_exists($controller, $actionName)) {
+//            header("HTTP/1.0 404 Not Found");
             exit($actionName . 'method not exist');
         }
 

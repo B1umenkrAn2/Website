@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use core\base\Controller;
-use app\models\Item;
+use app\models\Auser;
 
 class ItemController extends Controller
 {
@@ -12,9 +12,9 @@ class ItemController extends Controller
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
         if ($keyword) {
-            $items = (new Item())->search($keyword);
+            $items = (new Auser())->search($keyword);
         } else {
-            $items = (new Item)->where()->order(['id DESC'])->fetchAll();
+            $items = (new Auser)->where()->order(['id DESC'])->fetchAll();
         }
 
         $this->assign('title', 'all category');
@@ -26,7 +26,7 @@ class ItemController extends Controller
     public function detail($id)
     {
         //  using ? for replace param
-        $item = (new Item())->where(["id = ?"], [$id])->fetch();
+        $item = (new Auser())->where(["id = ?"], [$id])->fetch();
 
         $this->assign('title', 'details');
         $this->assign('item', $item);
@@ -36,7 +36,7 @@ class ItemController extends Controller
     public function add()
     {
         $data['item_name'] = $_POST['value'];
-        $count = (new Item)->add($data);
+        $count = (new Auser)->add($data);
 
         $this->assign('title', 'success');
         $this->assign('count', $count);
@@ -47,7 +47,7 @@ class ItemController extends Controller
     {
         $item = array();
         if ($id) {
-            $item = (new Item())->where(["id = :id"], [':id' => $id])->fetch();
+            $item = (new Auser())->where(["id = :id"], [':id' => $id])->fetch();
         }
 
         $this->assign('title', 'manage');
@@ -58,8 +58,7 @@ class ItemController extends Controller
     public function update()
     {
         $data = array('id' => $_POST['id'], 'item_name' => $_POST['value']);
-        $count = (new Item)->where(['id = :id'], [':id' => $data['id']])->update($data);
-
+        $count = (new Auser)->where(['id = :id'], [':id' => $data['id']])->update($data);
         $this->assign('title', 'update success');
         $this->assign('count', $count);
         $this->render();
@@ -67,7 +66,7 @@ class ItemController extends Controller
 
     public function delete($id = null)
     {
-        $count = (new Item)->delete($id);
+        $count = (new Auser)->delete($id);
 
         $this->assign('title', 'delete success');
         $this->assign('count', $count);

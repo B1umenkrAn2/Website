@@ -8,6 +8,7 @@
                 <div >
                     <label>Select Year</label>
                     <select  name="year">
+<!--                        <option value="all">All</option>-->
                         <?php
                         foreach ($year as $info) {
                             foreach ($info as $data) {
@@ -23,6 +24,7 @@
                 <div >
                     <label>Select province</label>
                     <select  name="province">
+<!--                        <option  value="all">All</option>-->
                         <?php
                         foreach ($province as $info) {
                             foreach ($info as $data) {
@@ -39,22 +41,22 @@
                 <label>info</label>
                 <input type="checkbox" checked disabled>
                 <label>Sites
-                    <input type="checkbox" name="tables[]" value="0">
+                    <input type="checkbox" name="tables[]" value='Sites'>
                 </label>
                 <label>Profiles
-                    <input type="checkbox" name="tables[]" value="1">
+                    <input type="checkbox" name="tables[]" value='Profiles'>
                 </label>
                 <label>Horizons
-                    <input type="checkbox" name="tables[]" value="2">
-                </label>
-                <label>Morphology
-                    <input type="checkbox" name="tables[]" value="3">
+                    <input type="checkbox" name="tables[]" value='Horizons'>
                 </label>
                 <label>Physical
-                    <input type="checkbox" name="tables[]" value="4">
+                    <input type="checkbox" name="tables[]" value='Physical'>
                 </label>
                 <label>chemical
-                    <input type="checkbox" name="tables[]" value="5">
+                    <input type="checkbox" name="tables[]" value='Chemical'>
+                </label>
+                <label>Morphology
+                    <input type="checkbox" name="tables[]" value='Moro'>
                 </label>
             </div>
         </div>

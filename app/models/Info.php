@@ -18,6 +18,9 @@ class Info extends Model
 
     public function setJoinTables($arr)
     {
+
+//        var_dump($arr);
+
         $joinedTable = "info";
         foreach ($arr as $table) {
             $joinedTable .= $table;
@@ -83,6 +86,7 @@ class Info extends Model
                 echo "<p> $num fields in line $row: <br /></p>\n";
                 $row++;
                 $arr1 = array();
+                $arr2 = array();
 
                 if ($row == 1) {
                     for ($c = 0; $c < 1; $c++) {
@@ -95,8 +99,8 @@ class Info extends Model
                         for ($c = 0; $c < $num; $c++) {
                             echo 'this is ' . $c;
                             echo $data[$c] . "<br />\n";
-                            $arr1[$c] = $data[$c];
-                            $this->add($arr1);
+                            $arr2[$c] = $data[$c];
+
                         }
 
                     } else {

@@ -11,7 +11,6 @@ class InfoController extends Controller
 {
 
 
-
     /*
      * use to render to selector view
      */
@@ -29,48 +28,75 @@ class InfoController extends Controller
     }
 
 
-
-
     /*
     * get selector require data from db and than pass to view
     */
     public function selected()
     {
-//        var_dump($_POST);
-        $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE= :PROVINCE');
-        $param = array(':CAL_YEAR' => $_POST['year'], ':PROVINCE' => $_POST['province']);
-
+        $year = $_POST['year'];
+        $province = $_POST['province'];
+        $param = array();
+        $where = array();
+        $items = null;
         $info = new Info();
-        if (isset($_POST['tables'])) {
-            $tables = $this::tableSelector2(($_POST['tables']));
+        if (isset($_POST["tables"])) {
+            $tables = $this->tableSelector($_POST['tables']);
             $info->setJoinTables($tables);
         }
-        $items = ($info)->where($where, $param)->fetchAll();
-        $downloadInfo=[trim($_POST['year']),trim($_POST['province'])];
-        $this->assign('downloadInfo',$downloadInfo);
+
+
+        if ($year === "all" && $province === "all") {
+            $items = $info->fetchAll();
+        } else if ($year == "all") {
+
+            $where = array(' PROVINCE = :PROVINCE');
+            $param = array(':PROVINCE' => $province);
+            $items = $info->where($where, $param)->fetchAll();
+
+        } else if ($province == "all") {
+            $where = array('CAL_YEAR = :CAL_YEAR');
+            $param = array(':CAL_YEAR' => $year);
+            $items = $info->where($where, $param)->fetchAll();
+        } else {
+            $where = array('CAL_YEAR = :CAL_YEAR', ' and PROVINCE = :PROVINCE');
+            $param = array(':CAL_YEAR' => $year, ':PROVINCE' => $province);
+
+
+
+            $items = $info->where($where, $param)->fetchAll();
+
+        }
+
+
         $this->assign('entities', $items);
         $this->assign('title', 'Data selected');
         $this->render();
 
     }
 
-    private function tableSelector2($arr)
+    private function tableSelector($arr)
     {
 
+
         $tables = array(
-            '0' => " left join Sites S on Info.PEDON_ID = S.PEDON_ID ",
-            '1' => " left join Profiles P2 on Info.PEDON_ID = P2.PEDON_ID",
-            '2' => " left join Horizons H on Info.PEDON_ID = H.PEDON_ID",
-            '3' => " left join Morphology M on H.PEDON_ID = M.PEDON_ID",
-            '4' => " left join Physical P on Info.PEDON_ID = P.PEDON_ID",
-            '5' => " left join Chemical C on Info.PEDON_ID = C.PEDON_ID",
+            'Sites' => " left join Sites S on Info.PEDON_ID = S.PEDON_ID ",
+            'Profiles' => " left join Profiles Prof on Info.PEDON_ID = Prof.PEDON_ID",
+            'Horizons' => " left join Horizons Hor on Info.PEDON_ID = Hor.PEDON_ID",
+            'Physical' => " left join Physical Phy on Info.PEDON_ID = Phy.PEDON_ID",
+            'Chemical' => " left join Chemical Chem on Info.PEDON_ID = Chem.PEDON_ID",
+            'Moro' => " left join Morphology Moro on Info.PEDON_ID = Moro.PEDON_ID"
         );
-
-        return array_intersect_key($tables, $arr);
+        $newArr = array();
+        $count = 0;
+        foreach ($arr as $value) {
+            if (array_key_exists($value, $tables)) {
+                $newArr[$count] = $tables[$value];
+                $count++;
+            }
+        }
+//        print_r($newArr);
+        return $newArr;
     }
-
-
-
 
 
 }

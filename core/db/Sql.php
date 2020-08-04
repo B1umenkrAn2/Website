@@ -33,8 +33,8 @@ class Sql
         if ($where) {
             $this->filter .= ' WHERE ';
             $this->filter .= implode(' ', $where);
-
             $this->param = $param;
+
         }
 
         return $this;
@@ -62,7 +62,11 @@ class Sql
     public function fetchAll()
     {
         $sql = sprintf("select * from %s %s", $this->table, $this->filter);
+
         $sth = Db::pdo()->prepare($sql);
+
+        print_r($sql);
+
         $sth = $this->formatParam($sth, $this->param);
         $sth->execute();
         return $sth->fetchAll();
@@ -131,8 +135,10 @@ class Sql
     public function formatParam(PDOStatement $sth, $params = array())
     {
         foreach ($params as $param => &$value) {
+
+
             $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
-//            var_dump($param);
+
             $sth->bindParam($param, $value);
         }
 

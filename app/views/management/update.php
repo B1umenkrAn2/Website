@@ -18,7 +18,7 @@ if (!$_SESSION['user'] != null)
                 <tr>
                     <td>Info</td>
                     <td><input required  type="radio" name="tables" value="Info"></td>
-                    <td rowspan="6"> <p class="px-5">select one of the table which will be up date</p></td>
+                    <td rowspan="6"> <p class="px-5">Select one of the table which will be up date</p></td>
                 </tr>
 
                 <tr>
@@ -41,7 +41,7 @@ if (!$_SESSION['user'] != null)
 
                 <tr>
                     <td>Morphology</td>
-                    <td><input required type="radio" name="tables" value="Morphology"></td>
+                    <td><input required type="radio" name="tables" value="Morphology "></td>
                 </tr>
 
                 <tr>

@@ -94,7 +94,6 @@ class InfoController extends Controller
                 $count++;
             }
         }
-//        print_r($newArr);
         return $newArr;
     }
 

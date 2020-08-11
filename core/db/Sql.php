@@ -96,9 +96,9 @@ class Sql
     }
 
     // create new record
-    public function add($data)
+    public function add($data,$table)
     {
-        $sql = sprintf("insert into `%s` %s", $this->table, $this->formatInsert($data));
+        $sql = sprintf("insert into `%s` %s", $table, $this->formatInsert($data));
         $sth = Db::pdo()->prepare($sql);
         $sth = $this->formatParam($sth, $data);
         $sth = $this->formatParam($sth, $this->param);
@@ -143,6 +143,22 @@ class Sql
         }
 
         return $sth;
+    }
+
+    public function updataFromFile($data ,$fields){
+
+
+
+        foreach ($data as $key => $value) {
+            $fields[] = sprintf("`%s`", $key);
+            $names[] = sprintf(":%s", $key);
+        }
+
+        $field = implode(',', $fields);
+        $name = implode(',', $names);
+
+        return sprintf("(%s) values (%s)", $field, $name);
+
     }
 
     // formatInsert date

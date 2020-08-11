@@ -45,8 +45,8 @@ class ManagementController extends Controller
         if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD']=='POST') {
 
             if (isset($_FILES)) {
-                $this->pre_r($_FILES);
-                $this->pre_r($_POST);
+//                $this->pre_r($_FILES);
+//                $this->pre_r($_POST);
                 $table = $_POST['tables'];
                 $info = new Info();
                 $result = $info->updateData($_FILES, $table);

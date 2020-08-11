@@ -15,18 +15,17 @@ class Info extends Model
      */
     protected $table = 'Info';
 
+    private $fileCols = array();
+
 
     public function setJoinTables($arr)
     {
-
-//        var_dump($arr);
-
         $joinedTable = "info";
         foreach ($arr as $table) {
             $joinedTable .= $table;
         }
         $this->table = $joinedTable;
-//        var_dump($joinedTable);
+
     }
 
 
@@ -36,9 +35,9 @@ class Info extends Model
      *
      * @return array return data
      */
-    public function search($keyword)
+    public function search($keyword, $sTable)
     {
-        $sql = "select * from `$this->table` where `item_name` like :keyword";
+        $sql = "select * from `$sTable` where `PEDON_ID` like :keyword";
         $sth = Db::pdo()->prepare($sql);
         $sth = $this->formatParam($sth, [':keyword' => "%$keyword%"]);
         $sth->execute();
@@ -56,64 +55,128 @@ class Info extends Model
         return $sth->fetchAll();
     }
 
-
-    public function comparedArrValue($table, $arr2)
+    /*
+     *  this method is used to count how many different columns is in the upload file
+     *  and return the different columns index
+     *
+     */
+    public function identifyDiffColName($table, $fileCol)
     {
 
-        $sql = "select name from pragma_table_info(" . $table . ")";
-        $sth = Db::pdo()->prepare($sql);
-        $sth->execute();
-        $arr1 = $sth->fetchAll();
+        $sql = "select name from pragma_table_info('" . $table . "')";
+        $sth = Db::pdo()->query($sql);
+        $dbarr = array_column($sth->fetchAll(), 'name');
+        return array_keys(array_diff($fileCol[0], $dbarr));
+//        return array_diff($fileCol[0], $dbarr);
 
-        sort($arr1);
-        sort($arr2);
 
-        return $arr1 == $arr2;
     }
-
 
     public function updateData($file, $table)
     {
-//        $updateTime = date("Y-m-d H:i:s");
-//        $fileDir = APP_PATH . 'static/update/';
-//        move_uploaded_file($file['file']['tem_name'],$fileDir.$updateTime.$file['file']['name']);
+        $csvFile = $file['file']['tmp_name'];
 
+        $header = $this->fileDataRead($csvFile, 1, 1);
+        $diffCol = $this->identifyDiffColName($table, $header);
+//        $compareData = $this->dataHandle($this->fileDataRead($csvFile, 2, 6), $diffCol);
+        $header = $this->dataHandle($header, $diffCol);
+        $this->updateAllDataFromFile($csvFile, $table, $diffCol, $header[0]);
+
+
+    }
+
+    private function updateAllDataFromFile($file, $table, $diffCol, $header)
+    {
 
         $row = 1;
-        if (($handle = fopen($file['file']['tmp_name'], "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+        if (($handle = fopen($file, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $num = count($data);
-                echo "<p> $num fields in line $row: <br /></p>\n";
+                $arr = array();
                 $row++;
-                $arr1 = array();
-                $arr2 = array();
+                if ($row > 2) {
+                    $arr = $data;
+                }
+                $insertData = $this->arrHandle($arr, $diffCol);
 
-                if ($row == 1) {
-                    for ($c = 0; $c < 1; $c++) {
-                        $arr1[$c] = $data[$c];
+                if ($row > 2) {
+                    if ($this->add(array_combine($header, $insertData),$table) != 1) {
+                            return "update error";
                     }
-                } else {
-                    $result = $this->comparedArrValue($table, $arr1);
-                    if ($result) {
-                        $arr1 = [];
-                        for ($c = 0; $c < $num; $c++) {
-                            echo 'this is ' . $c;
-                            echo $data[$c] . "<br />\n";
-                            $arr2[$c] = $data[$c];
-
-                        }
-
-                    } else {
-                        return "table is no correct";
-                    }
-
                 }
             }
-            fclose($handle);
 
-            return 'update complete';
+            fclose($handle);
         }
 
+
+    }
+
+
+    private function fileDataRead($file, $startRow, $endRow)
+    {
+        $n = 0;
+        $handle = fopen($file, "r");
+        if ($handle) {
+            while (($row = fgetcsv($handle, 0, ",")) !== FALSE) {
+                ++$n;
+                if ($startRow <= $n) {
+                    $ling[] = $row;
+                }
+                if ($endRow != 0) {
+                    if ($endRow == $n) break;
+                }
+
+            }
+            fclose($handle);
+        }
+
+        if ($endRow == $n) return $ling;
+        return false;
+
+    }
+
+
+    private function dataCompare($source, $table)
+    {
+        $info = new Info();
+
+        foreach ($source as $item) {
+            $allPEDON_ID = $info->search($item[2], $table);
+            if (!empty($allPEDON_ID)) {
+                return array("same data");
+            }
+        }
+    }
+
+    private function arrHandle($arr, $difIndex)
+    {
+        $newArr = array();
+        foreach ($difIndex as $item) {
+            unset($arr[$item]);
+        }
+
+        return $arr;
+
+    }
+
+    private function dataHandle($arr, $difIndex)
+    {
+        $newArr = array();
+        foreach ($arr as $item) {
+            foreach ($difIndex as $value) {
+                unset($item[$value]);
+            }
+            $newArr[] = $item;
+        }
+        return $newArr;
+    }
+
+    public function pre_r($array)
+    {
+        echo '<pre>';
+        print_r($array);
+        echo '</pre>';
     }
 
 

@@ -65,7 +65,7 @@ class Sql
 
         $sth = Db::pdo()->prepare($sql);
 
-        print_r($sql);
+//        print_r($sql);
 
         $sth = $this->formatParam($sth, $this->param);
         $sth->execute();

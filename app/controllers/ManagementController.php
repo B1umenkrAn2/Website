@@ -43,19 +43,17 @@ class ManagementController extends Controller
     public function result()
     {
         if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD']=='POST') {
-
+//            $this->pre_r($_FILES);
             if (isset($_FILES)) {
-//                $this->pre_r($_FILES);
-//                $this->pre_r($_POST);
                 $table = $_POST['tables'];
                 $info = new Info();
                 $result = $info->updateData($_FILES, $table);
-                $this->assign('result', $result);
             } else {
-                $this->assign('error', 'file upload error.');
+                $result = 'file upload error.';
+
             }
 
-
+            $this->assign('result', $result);
             $this->assign('title', 'update');
             $this->render();
         }

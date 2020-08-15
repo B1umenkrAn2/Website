@@ -13,12 +13,12 @@ if (!$_SESSION['user'] != null)
             <input type="file"  required class="form-control-file  btn-warning" name="file" />
         </div>
         <div class="px-4 py-3 form-group  " >
-            <label>Tables</label>
+            <label>Select the update table</label>
             <table>
                 <tr>
                     <td>Info</td>
                     <td><input required  type="radio" name="tables" value="Info"></td>
-                    <td rowspan="6"> <p class="px-5">Select one of the table which will be up date</p></td>
+
                 </tr>
 
                 <tr>
@@ -28,11 +28,13 @@ if (!$_SESSION['user'] != null)
                 <tr>
                     <td>Sites</td>
                     <td><input required type="radio" name="tables" value="Sites"></td>
+
                 </tr>
 
                 <tr>
                     <td>Chemical</td>
                     <td><input required type="radio" name="tables" value="Chemical"></td>
+
                 </tr>
                 <tr>
                     <td>Horizons</td>

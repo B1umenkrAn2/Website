@@ -35,7 +35,7 @@
                     <li class="nav-item"><a href="//<?php echo fullUrl?>info/selector" class="nav-link">Database</a></li>
                     <li class="nav-item"><a href="//<?php echo fullUrl?>Description" class="nav-link">Description</a></li>
 <!--                    <li class="nav-item"><a href="//--><?php //echo fullUrl?><!--download/selector" class="nav-link">Data download</a></li>-->
-                    <li class="nav-item"><a href="//<?php echo fullUrl?>Management" class="nav-link">Management</a></li>
+                    <li class="nav-item"><a href="//<?php echo fullUrl?>Management/login" class="nav-link">Management</a></li>
 
                 </ul>
             </div>
@@ -50,7 +50,7 @@
         </nav>
     </div>
     <div class=" myHeader bg-warning text-dark text-center py-5">
-        <h1 class="display-3 mb-3">National padon data viewer</h1>
+        <h1 class="display-4 mb-3">National padon data viewer</h1>
     </div>
 </header>
 <main >

@@ -5,6 +5,7 @@ namespace app\models;
 use core\base\Model;
 use core\db\Db;
 
+set_time_limit(600);
 
 class Info extends Model
 {
@@ -66,8 +67,22 @@ class Info extends Model
         $sql = "select name from pragma_table_info('" . $table . "')";
         $sth = Db::pdo()->query($sql);
         $dbarr = array_column($sth->fetchAll(), 'name');
-        return array_keys(array_diff($fileCol[0], $dbarr));
-//        return array_diff($fileCol[0], $dbarr);
+        $count=0;
+        foreach ($dbarr as  $item){
+
+            if(array_search($item,$fileCol[0])){
+                $count++;
+            }
+
+        }
+        if ($count>(count($dbarr)/2)){
+            return array_keys(array_diff($fileCol[0], $dbarr));
+        }else{
+            return  ' File not match to the table!';
+        }
+
+
+
 
 
     }
@@ -78,20 +93,31 @@ class Info extends Model
 
         $header = $this->fileDataRead($csvFile, 1, 1);
         $diffCol = $this->identifyDiffColName($table, $header);
+
+        if (is_array($diffCol)){
 //        $compareData = $this->dataHandle($this->fileDataRead($csvFile, 2, 6), $diffCol);
-        $header = $this->dataHandle($header, $diffCol);
-        $this->updateAllDataFromFile($csvFile, $table, $diffCol, $header[0]);
+//        $comp = $this->dataCompare($compareData,$table);
+
+            $insertHeader = $this->dataHandle($header, $diffCol);
+            return $this->updateAllDataFromFile($csvFile, $table, $diffCol, $insertHeader[0]);
+        }else{
+            return $diffCol;
+        }
+
+
+
 
 
     }
 
     private function updateAllDataFromFile($file, $table, $diffCol, $header)
     {
-
+        $success = 0;
+        $failure = 0;
         $row = 1;
         if (($handle = fopen($file, "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                $num = count($data);
+//                $num = count($data);
                 $arr = array();
                 $row++;
                 if ($row > 2) {
@@ -100,15 +126,17 @@ class Info extends Model
                 $insertData = $this->arrHandle($arr, $diffCol);
 
                 if ($row > 2) {
-                    if ($this->add(array_combine($header, $insertData),$table) != 1) {
-                            return "update error";
+                    if ($this->add(array_combine($header, $insertData), $table) != 1) {
+                        $failure++;
+                    } else {
+                        $success++;
                     }
                 }
             }
 
             fclose($handle);
         }
-
+        return array('total'=>$failure+$success,'success' => $success, 'failure' => $failure);
 
     }
 
@@ -137,14 +165,19 @@ class Info extends Model
     }
 
 
-    private function dataCompare($source, $table)
+    private function dataCompare( $source, $table)
     {
         $info = new Info();
+
+
+
 
         foreach ($source as $item) {
             $allPEDON_ID = $info->search($item[2], $table);
             if (!empty($allPEDON_ID)) {
-                return array("same data");
+                return true;
+            }else{
+                return false;
             }
         }
     }

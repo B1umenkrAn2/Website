@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="npdb" uuid="cecca6aa-d86b-4a85-ba16-b317f83456b9">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\xampp\htdocs\Website\static\npdb.sqlite</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="npdb [2]" uuid="50ff8683-5748-438e-85c8-9ce154faf05b">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Program Files (x86)\Xampp\htdocs\cansis\pedonviewer\core\db\npdb.sqlite</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="npdb [3]" uuid="400f25f8-442a-4737-9f43-ef5c45378c1c">
+    <data-source source="LOCAL" name="npdb" uuid="400f25f8-442a-4737-9f43-ef5c45378c1c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

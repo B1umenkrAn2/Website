@@ -3,40 +3,44 @@
 <section class="container my-3">
     <form action="selected" method="post" >
         <div class="row">
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-3 text-center">
                 <!-- select -->
                 <div >
                     <label>Select Year</label>
-                    <select  name="year">
-<!--                        <option value="all">All</option>-->
+                    <select class="form-control"  name="year">
+                        <option value="all">All</option>
                         <?php
-                        foreach ($year as $info) {
-                            foreach ($info as $data) {
-                                echo "<option value='$data'>" . $data . "</option>";
-                            }
+                        foreach ($year as $item) {
+
+                                echo "<option value='$item'>" . $item . "</option>";
+
                         }
                         ?>
+
                     </select>
                 </div>
             </div>
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-3 text-center">
                 <!-- select -->
                 <div >
-                    <label>Select province</label>
-                    <select  name="province">
-<!--                        <option  value="all">All</option>-->
+                    <label >Select province</label>
+                    <select class="form-control" name="province">
+
                         <?php
-                        foreach ($province as $info) {
-                            foreach ($info as $data) {
-                                echo "<option value='$data'>" . $data . "</option>";
-                            }
+                        var_dump($province);
+
+                        foreach ($province as $item) {
+
+                                echo "<option value='$item'>" . $item . "</option>";
+
                         }
                         ?>
+                        <option  value="all">All</option>
                     </select>
                 </div>
             </div>
 
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-6 text-center">
                 <p>Table Select</p>
                 <label>info</label>
                 <input type="checkbox" checked disabled>
@@ -60,7 +64,7 @@
                 </label>
             </div>
         </div>
-        <div class="container text-center">
+        <div class="container text-center py-5 ">
         <input class="btn btn-primary" type="submit" value="Submit" />
         <input class="btn btn-primary" type="button" onclick="window.location.href='http://<?php echo fullUrl ?>'" value="back" />
         </div>

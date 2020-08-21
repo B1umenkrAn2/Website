@@ -31,7 +31,6 @@ class Auser extends Model
         $where = array('username = :username');
         $param = array(':username' => $_POST['username']);
         $user = $this->where($where,$param)->fetch();
-//        var_dump($user);
         if ($user['username'] == $userName && trim($user['password']) == trim($password)) {
             return $user;
         } else {

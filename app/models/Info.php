@@ -4,6 +4,7 @@ namespace app\models;
 
 use core\base\Model;
 use core\db\Db;
+use PDO;
 
 set_time_limit(600);
 
@@ -14,7 +15,7 @@ class Info extends Model
      *
      * @var string using to store table name
      */
-    protected $table = 'Info';
+    protected $table = 'Info ';
 
     private $fileCols = array();
 
@@ -52,8 +53,8 @@ class Info extends Model
         $sql = "select distinct " . $ColumnName . ' from ' . $this->table;
         $sth = Db::pdo()->prepare($sql);
         $sth->execute();
+        return  $sth->fetchAll(PDO::FETCH_COLUMN);
 
-        return $sth->fetchAll();
     }
 
     /*
@@ -117,7 +118,6 @@ class Info extends Model
         $row = 1;
         if (($handle = fopen($file, "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-//                $num = count($data);
                 $arr = array();
                 $row++;
                 if ($row > 2) {
@@ -205,12 +205,6 @@ class Info extends Model
         return $newArr;
     }
 
-    public function pre_r($array)
-    {
-        echo '<pre>';
-        print_r($array);
-        echo '</pre>';
-    }
 
 
 }

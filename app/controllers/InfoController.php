@@ -18,7 +18,7 @@ class InfoController extends Controller
     {
 
         $year = (new Info)->getColumnAttributes("CAL_YEAR");
-        $province = (new Info("info"))->getColumnAttributes("PROVINCE");
+        $province = (new Info("info"))->getColumnAttributes("PROVINCE COLLATE NOCASE");
         sort($year);
         $this->assign('title', 'Data selector');
         $this->assign('year', $year);
@@ -62,7 +62,6 @@ class InfoController extends Controller
             $param = array(':CAL_YEAR' => $year, ':PROVINCE' => $province);
 
 
-
             $items = $info->where($where, $param)->fetchAll();
 
         }
@@ -79,12 +78,12 @@ class InfoController extends Controller
 
 
         $tables = array(
-            'Sites' => " left join Sites S on Info.PEDON_ID = S.PEDON_ID ",
-            'Profiles' => " left join Profiles Prof on Info.PEDON_ID = Prof.PEDON_ID",
-            'Horizons' => " left join Horizons Hor on Info.PEDON_ID = Hor.PEDON_ID",
-            'Physical' => " left join Physical Phy on Info.PEDON_ID = Phy.PEDON_ID",
-            'Chemical' => " left join Chemical Chem on Info.PEDON_ID = Chem.PEDON_ID",
-            'Moro' => " left join Morphology Moro on Info.PEDON_ID = Moro.PEDON_ID"
+            'Sites' => "  join Sites S on Info.PEDON_ID = S.PEDON_ID ",
+            'Profiles' => "  join Profiles Prof on Info.PEDON_ID = Prof.PEDON_ID",
+            'Horizons' => "  join Horizons Hor on Info.PEDON_ID = Hor.PEDON_ID",
+            'Physical' => "  join Physical Phy on Info.PEDON_ID = Phy.PEDON_ID",
+            'Chemical' => "  join Chemical Chem on Info.PEDON_ID = Chem.PEDON_ID",
+            'Moro' => "  join Morphology Moro on Info.PEDON_ID = Moro.PEDON_ID"
         );
         $newArr = array();
         $count = 0;

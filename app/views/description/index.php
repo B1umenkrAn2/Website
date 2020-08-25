@@ -1,16 +1,4 @@
 
-<script>
-
-    function display($table) {
-        var info = document.getElementById($table);
-
-        if (info.style.display ==='' ){
-            info.style.display = 'none';
-        }else if (info.style.display === 'none'){
-            info.style.display = '';
-        }
-    }
-</script>
 
 <section class=" container py-5">
     <h2 class="text-center text-capitalize">Informal description</h2>

@@ -17,7 +17,24 @@ Due to this website using Sqlite, we should install php-sqlite component
 ```        
         sudo apt-get install php-sqlite 
 ```  
-#### 1.2 Directory Preparation
+
+#### 1.2 Code Specification
+
+ 
+After the directory is set up, next specify the code specification:
+
+SQLite table names must be Capitalize the first letter, such as: Item, Info.
+Module names (Models) is the same as the table names.
+
+Controllers need to use the big hump naming method, the first letter is capitalized, and Controller is added after the name, such as ItemController, InfoController.
+
+The method name (action) needs to use the little camel case, that is, the first letter is lowercase, such as index, selected.
+
+The forward (view) deployment structure is the controller name/behaviour name, such as item/add.php, info/index.php.
+The above rules are for programs to call each other better.
+
+
+#### 1.3 Directory Preparation
 the directory structure is like this:
 
 ```        
@@ -37,7 +54,7 @@ the directory structure is like this:
 
 put this website folder in to Apache default folder which is /var/wwww 
 
-#### 1.3 Redirection
+#### 1.4 Redirection
 
 **Important :**
    To using this function, first is config apache server. the default configuration of apache does not open rewrite function.
@@ -78,7 +95,7 @@ you can get /item/detail/1 with $_SERVER['REQUEST_URI'] in PHP;
 
 (3) Can be used to generate landscaping URLs, which is beneficial to SEO .
 
-#### 1.4 Database setting and configuration
+#### 1.5 Database setting and configuration
 Due to we are using Sqlite which is a file-base database, the linux should have the permissions to access the DB file.
 When create the DB file in somewhere, have to use the following code to change the file permission.
     
@@ -90,6 +107,21 @@ When create the DB file in somewhere, have to use the following code to change t
     chmod 777 *dbfilefolder* 
 ```
  
-#### 1.5 End of deployment server 
+#### 1.6 End of deployment server 
 
 Now everything should be configured. Test all feature by access http://localhost/
+
+#### 2.0 how to add a new feature.
+
+Due to this application is use MVC architecture. 
+
+there are a few steps that can simplify to add new features.
+1. if need to connect with the database check the module to add or modify the module.
+2. check the controller. modify or add a new controller to implement new features. 
+3. add the view page.
+
+all steps have to follow the framework principles. 
+
+
+
+

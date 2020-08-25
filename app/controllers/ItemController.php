@@ -5,8 +5,17 @@ namespace app\controllers;
 use core\base\Controller;
 use app\models\Auser;
 
+/*
+ *  item module is use to test the MVC framework.
+ *
+ */
+
+
 class ItemController extends Controller
 {
+    /*
+     * index page method
+     */
     public function index()
     {
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
@@ -23,6 +32,9 @@ class ItemController extends Controller
         $this->render();
     }
 
+    /*
+     *  display the detail of a item with a special id
+     */
     public function detail($id)
     {
         //  using ? for replace param
@@ -33,6 +45,9 @@ class ItemController extends Controller
         $this->render();
     }
 
+    /*
+     *  use to add new item
+     */
     public function add()
     {
         $data['item_name'] = $_POST['value'];
@@ -43,6 +58,9 @@ class ItemController extends Controller
         $this->render();
     }
 
+    /*
+     *  use to edit a item with special item id
+     */
     public function manage($id = 0)
     {
         $item = array();
@@ -55,6 +73,9 @@ class ItemController extends Controller
         $this->render();
     }
 
+    /*
+     *  use to update a item
+     */
     public function update()
     {
         $data = array('id' => $_POST['id'], 'item_name' => $_POST['value']);
@@ -64,6 +85,9 @@ class ItemController extends Controller
         $this->render();
     }
 
+    /*
+     * delete item
+     */
     public function delete($id = null)
     {
         $count = (new Auser)->delete($id);

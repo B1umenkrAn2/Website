@@ -19,6 +19,8 @@ class Auser extends Model
 
     /**
      *
+     * auth the admin user
+     *
      * @param $userName  username (String)
      *
      * @param $password password(String)

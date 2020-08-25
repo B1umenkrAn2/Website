@@ -17,9 +17,11 @@ class Info extends Model
      */
     protected $table = 'Info ';
 
-    private $fileCols = array();
 
-
+    /**
+     *  glue all the join table
+     * @param $arr  . join table array
+     */
     public function setJoinTables($arr)
     {
         $joinedTable = "info";
@@ -47,6 +49,12 @@ class Info extends Model
         return $sth->fetchAll();
     }
 
+    /**
+     * get column attributes from database for the year or province
+     *
+     * @param $ColumnName  column will be used
+     * @return array the columns result
+     */
     public function getColumnAttributes($ColumnName)
     {
 
@@ -57,9 +65,13 @@ class Info extends Model
 
     }
 
-    /*
+    /**
      *  this method is used to count how many different columns is in the upload file
      *  and return the different columns index
+     * @param $table  update table
+     * @param $fileCol  update column array
+     *
+     * @return different column index in $fileCol array
      *
      */
     public function identifyDiffColName($table, $fileCol)
@@ -88,6 +100,17 @@ class Info extends Model
 
     }
 
+    /**
+     *  this method is for update the data.
+     *  1. get the file form the $_post.
+     *  2. use file to get the column which will be update.
+     *  3. compare the file columns and database columns.
+     *  4. if compare pass insert data to database.
+     *
+     * @param $file update file
+     * @param $table update table
+     * @return different|int[]|string    int[] for the update record collection. string for wrong table or has error.
+     */
     public function updateData($file, $table)
     {
         $csvFile = $file['file']['tmp_name'];
@@ -111,6 +134,15 @@ class Info extends Model
 
     }
 
+    /**
+     *  insert data to database.
+     *
+     * @param $file update file
+     * @param $table update table
+     * @param $diffCol  differernt columns in file.
+     * @param $header   databse columns
+     * @return int[]  record insert collection.
+     */
     private function updateAllDataFromFile($file, $table, $diffCol, $header)
     {
         $success = 0;
@@ -141,6 +173,13 @@ class Info extends Model
     }
 
 
+    /**
+     *  this method is use for read certain line data from the file.
+     * @param $file update file
+     * @param $startRow file startRow
+     * @param $endRow  file endRow
+     * @return bool
+     */
     private function fileDataRead($file, $startRow, $endRow)
     {
         $n = 0;
@@ -164,13 +203,14 @@ class Info extends Model
 
     }
 
+    /*
+     *  this method is use for compare file data and database data.
+     *  this method is not implement in current version.
+     */
 
     private function dataCompare( $source, $table)
     {
         $info = new Info();
-
-
-
 
         foreach ($source as $item) {
             $allPEDON_ID = $info->search($item[2], $table);
@@ -182,6 +222,13 @@ class Info extends Model
         }
     }
 
+    /**
+     *
+     * this method is used for clean all data which not to be inserted to database
+     * @param $arr sorce array
+     * @param $difIndex column which is not exist in the database index
+     * @return mixed array with
+     */
     private function arrHandle($arr, $difIndex)
     {
         $newArr = array();
@@ -193,6 +240,13 @@ class Info extends Model
 
     }
 
+    /**
+     *
+     *
+     * @param $arr
+     * @param $difIndex
+     * @return array 2 dimensional array
+     */
     private function dataHandle($arr, $difIndex)
     {
         $newArr = array();

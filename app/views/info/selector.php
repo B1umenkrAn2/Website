@@ -27,7 +27,7 @@
                     <select class="form-control" name="province">
 
                         <?php
-                        var_dump($province);
+
 
                         foreach ($province as $item) {
 

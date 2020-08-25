@@ -10,7 +10,9 @@ use app\models\Info;
 
 class ManagementController extends Controller
 {
-
+    /*
+     * this method is use for admin to login the management system.
+     */
     public function login()
     {
         $_SESSION['loginErr'] = '';
@@ -19,6 +21,10 @@ class ManagementController extends Controller
 
     }
 
+    /*
+     *  update the CSV file to update the database
+     *
+     */
     public function update()
     {
 
@@ -39,15 +45,16 @@ class ManagementController extends Controller
 
     }
 
-
+    /*
+     *  this method is for the update result.
+     */
     public function result()
     {
         if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD']=='POST') {
-//            $this->pre_r($_FILES);
             if (isset($_FILES)) {
                 $table = $_POST['tables'];
                 $info = new Info();
-                $result = $info->updateData($_FILES, $table);
+                $result = $info->updateData($_FILES, $table); // get the update result
             } else {
                 $result = 'file upload error.';
 
@@ -59,11 +66,5 @@ class ManagementController extends Controller
         }
     }
 
-    public function pre_r($array)
-    {
-        echo '<pre>';
-        print_r($array);
-        echo '</pre>';
-    }
 
 }

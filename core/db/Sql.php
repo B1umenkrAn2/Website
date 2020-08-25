@@ -142,21 +142,6 @@ class Sql
         return $sth;
     }
 
-    public function updataFromFile($data ,$fields){
-
-
-
-        foreach ($data as $key => $value) {
-            $fields[] = sprintf("`%s`", $key);
-            $names[] = sprintf(":%s", $key);
-        }
-
-        $field = implode(',', $fields);
-        $name = implode(',', $names);
-
-        return sprintf("(%s) values (%s)", $field, $name);
-
-    }
 
     // formatInsert date
     private function formatInsert($data)
